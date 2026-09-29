@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --ground: #FFFFFF;      /* name page background */
+  --ink: #0B0B0D;
+  --mute: #5C5F6A;
+  --accent: #FF4A3D;      /* the red name and beanie */
+  --accent-ink: #D0281B;  /* red for small text on white */
+  --wall: #000000;        /* the black wall */
+  --wall-fg: #8A8F9C;     /* text on the wall */
+  --hoodie: #8E94A1;
+  --hoodie-dk: #6A707E;
+  --pants: #EDEEF2;
+  --pants-far: #C9CCD4;
+  --sweat: #9FD3FF;
+  --display: var(--font-display), 'Times New Roman', Georgia, serif;
+  --body: var(--font-body), system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+
+html.intro { overflow: hidden; }
+body { background: var(--ground); color: var(--ink); font-family: var(--body); margin: 0; }
+
+.stage {
+  --size: clamp(4rem, min(22vw, 36svh), 24rem);   /* name font size */
+  position: fixed; inset: 0; z-index: 100; overflow: hidden; pointer-events: none;
+  background: var(--ground);
+  animation: gone 0s linear 12s forwards;          /* failsafe: hides the stage if JS never runs */
+}
+@keyframes gone { to { visibility: hidden; } }
+
+.sname {
+  position: absolute; inset-inline: 0; top: 50%; transform: translateY(-50%);
+  margin: 0; text-align: center; color: var(--accent);
+  font: 900 var(--size)/.82 var(--display);
+  letter-spacing: -.02em; text-transform: uppercase;
+}
+.sname span { display: block; }
+
+.wall { position: absolute; inset: 0; background: var(--wall); will-change: transform; }
+.count { position: absolute; left: 24px; bottom: 5svh; display: flex; gap: 14px; color: var(--wall-fg);
+         font: 400 .75rem var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+.count span:last-child { font-variant-numeric: tabular-nums; }
+
+/* The character's feet sit on the bottom edge of the name block. */
+.kid { position: absolute; left: 0; bottom: calc(50% - .82 * var(--size) - 4px); will-change: transform; }
+
+/* Reveal of the simple page after the name page starts to leave */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal .rise { animation: rise .9s cubic-bezier(.2,.7,.2,1) backwards; animation-delay: var(--d, 0s); }
+}
+@keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }

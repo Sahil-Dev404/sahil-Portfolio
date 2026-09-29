@@ -1,0 +1,24 @@
+.svg { display: block; height: clamp(150px, min(42svh, 62vw), 460px); width: auto; overflow: visible; }
+.shadow { fill: var(--ink); opacity: .13; }
+.ol { stroke: var(--ink); fill: none; stroke-linecap: round; }
+.pants { stroke: var(--pants); fill: none; stroke-linecap: round; }
+.pants.far { stroke: var(--pants-far); }
+.hood { stroke: url(#dots); fill: none; stroke-linecap: round; }
+.skin { fill: #fff; stroke: var(--ink); stroke-width: 4; }
+.shoeBody { fill: #fff; stroke: var(--ink); stroke-width: 4; stroke-linejoin: round; }
+.sole { stroke: var(--ink); stroke-width: 6; stroke-linecap: round; fill: none; }
+.beanie { fill: var(--accent); stroke: var(--ink); stroke-width: 4; stroke-linejoin: round; }
+.line3 { stroke: var(--ink); stroke-width: 3; stroke-linecap: round; fill: none; }
+.hand { fill: #fff; stroke: var(--ink); stroke-width: 3.5; }
+
+.leg  { transform-origin: 88px 150px; animation: step .5s ease-in-out infinite alternate; }
+.leg.b { animation-direction: alternate-reverse; }
+.shoe { transform-origin: 88px 222px; animation: unstep .5s ease-in-out infinite alternate; }
+.leg.b .shoe { animation-direction: alternate-reverse; }
+.arm  { transform-origin: 122px 98px; animation: shove .5s ease-in-out infinite alternate; }
+.bob  { animation: bob .25s ease-in-out infinite alternate; }
+
+@keyframes step   { from { transform: rotate(-28deg); } to { transform: rotate(28deg); } }
+@keyframes unstep { from { transform: rotate(28deg); }  to { transform: rotate(-28deg); } }
+@keyframes shove  { from { transform: rotate(-1.5deg); } to { transform: rotate(2deg); } }
+@keyframes bob    { from { transform: translateY(0); }   to { transform: translateY(-3px); } }
