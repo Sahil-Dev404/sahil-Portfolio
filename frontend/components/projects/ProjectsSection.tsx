@@ -26,7 +26,7 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative w-full rounded-[2.5rem] bg-gradient-to-b from-zinc-50/90 via-white to-zinc-50/60 text-zinc-950 p-6 sm:p-10 md:p-14 overflow-hidden border border-zinc-200/80 shadow-xs my-8"
+      className="relative w-full rounded-[2.5rem] bg-gradient-to-b from-zinc-50/90 via-white to-zinc-50/60 text-zinc-950 p-6 sm:p-10 md:p-14 overflow-hidden border border-zinc-200/80 shadow-xs my-8 scroll-mt-12"
       aria-label="Selected Projects and Research"
     >
       {/* Background ambient lighting matching editorial light flow */}
@@ -38,6 +38,7 @@ export function ProjectsSection() {
         className="pointer-events-none absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-zinc-50/40 to-transparent"
         aria-hidden
       />
+      <div className="absolute inset-0 pointer-events-none opacity-40 graph-grid" aria-hidden />
 
       {/* Section Header */}
       <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-zinc-200/80">

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, DM_Mono, Instrument_Sans } from "next/font/google";
+import { Playfair_Display, DM_Mono, Instrument_Sans, Caveat } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -23,6 +23,13 @@ const instrumentSans = Instrument_Sans({
   display: "swap",
 });
 
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-signature",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Sahil Saini — Portfolio",
   description: "Personal portfolio of Sahil Saini, full-stack engineer and motion designer.",
@@ -36,7 +43,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${dmMono.variable} ${instrumentSans.variable}`}
+      className={`${playfair.variable} ${dmMono.variable} ${instrumentSans.variable} ${caveat.variable}`}
     >
       <body>{children}</body>
     </html>

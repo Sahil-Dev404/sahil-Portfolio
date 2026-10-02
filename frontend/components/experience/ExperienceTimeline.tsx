@@ -88,7 +88,7 @@ export function ExperienceTimeline({
     <section
       ref={containerRef}
       id="experience"
-      className={`relative w-full py-10 my-4 ${className}`}
+      className={`relative w-full py-10 my-4 scroll-mt-12 ${className}`}
       aria-label="Experience timeline"
     >
       {/* Section Header */}

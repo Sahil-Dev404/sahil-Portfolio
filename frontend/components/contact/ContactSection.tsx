@@ -64,7 +64,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full rounded-[2.5rem] bg-gradient-to-b from-zinc-50/90 via-white to-zinc-50/60 text-zinc-950 p-6 sm:p-10 md:p-16 my-10 overflow-hidden border border-zinc-200/80 shadow-xs"
+      className="relative w-full rounded-[2.5rem] bg-gradient-to-b from-zinc-50/90 via-white to-zinc-50/60 text-zinc-950 p-6 sm:p-10 md:p-16 my-10 overflow-hidden border border-zinc-200/80 shadow-xs scroll-mt-12"
       aria-label="Contact Section"
     >
       {/* Background ambient lighting */}
@@ -72,6 +72,7 @@ export function ContactSection() {
         className="pointer-events-none absolute -top-32 right-1/4 size-96 rounded-full bg-[radial-gradient(circle,rgba(255,74,61,0.06)_0%,rgba(99,102,241,0.03)_45%,transparent_70%)] blur-3xl"
         aria-hidden
       />
+      <div className="absolute inset-0 pointer-events-none opacity-40 graph-grid" aria-hidden />
 
       {/* Header Info */}
       <div className="relative z-10">
@@ -86,23 +87,25 @@ export function ContactSection() {
         </p>
       </div>
 
-      {/* Big Outlined Display Statement (Matches Reference Image) */}
-      <div className="relative z-10 my-10 sm:my-14 select-none">
+      {/* Big Outlined Display Statement (Single line to save vertical space) */}
+      <div className="relative z-10 my-4 sm:my-6 select-none overflow-x-auto no-scrollbar">
         <div
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.05] uppercase font-[var(--display)]"
+          className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tight leading-none uppercase font-[var(--display)] flex items-center gap-2 sm:gap-3 whitespace-nowrap"
           style={{
             WebkitTextStroke: "1.5px rgba(24, 24, 27, 0.85)",
             color: "transparent",
           }}
         >
-          <div>Let&apos;s build</div>
-          <div>something</div>
-          <div className="flex items-center gap-3">
-            <span>real</span>
-            <span className="text-zinc-950 text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
-              →
-            </span>
-          </div>
+          <span>Let&apos;s build something real</span>
+          <span
+            className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal inline-block"
+            style={{
+              WebkitTextStroke: "0px",
+              color: "#18181b",
+            }}
+          >
+            →
+          </span>
         </div>
       </div>
 

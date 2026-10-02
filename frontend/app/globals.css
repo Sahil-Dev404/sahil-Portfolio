@@ -16,11 +16,22 @@
   --display: var(--font-display), 'Times New Roman', Georgia, serif;
   --body: var(--font-body), system-ui, -apple-system, 'Segoe UI', sans-serif;
   --mono: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+  --signature: var(--font-signature), 'Caveat', 'Cedarville Cursive', cursive;
   color-scheme: light;
 }
 
 html.intro { overflow: hidden; }
-body { background: var(--ground); color: var(--ink); font-family: var(--body); margin: 0; }
+body {
+  background-color: var(--ground);
+  background-image:
+    linear-gradient(to right, rgba(24, 24, 27, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(24, 24, 27, 0.05) 1px, transparent 1px);
+  background-size: 36px 36px;
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--body);
+  margin: 0;
+}
 
 .stage {
   --size: clamp(4rem, min(22vw, 36svh), 24rem);   /* name font size */
@@ -81,4 +92,33 @@ body { background: var(--ground); color: var(--ink); font-family: var(--body); m
 .animate-marquee-ltr:hover {
   animation-play-state: paused;
 }
+
+/* Graph paper grid texture utility */
+.graph-grid {
+  background-image:
+    linear-gradient(to right, rgba(24, 24, 27, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(24, 24, 27, 0.06) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+/* Realistic pendulum sway for lanyard card */
+@keyframes lanyard-sway {
+  0% {
+    transform: rotate(-3.6deg) rotateY(-3.5deg);
+  }
+  50% {
+    transform: rotate(3.6deg) rotateY(3.5deg);
+  }
+  100% {
+    transform: rotate(-3.6deg) rotateY(-3.5deg);
+  }
+}
+
+.animate-lanyard-sway {
+  transform-origin: 50% 0px;
+  animation: lanyard-sway 4.6s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+  will-change: transform;
+}
+
+
 

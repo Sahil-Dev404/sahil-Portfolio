@@ -494,7 +494,7 @@ export function SkillsSection() {
   return (
     <section
       id="skills"
-      className="relative w-full rounded-[2rem] bg-gradient-to-b from-zinc-50/90 via-zinc-50/50 to-transparent border border-zinc-200/70 p-6 sm:p-8 my-8 shadow-xs overflow-hidden transition-colors"
+      className="relative w-full rounded-[2rem] bg-gradient-to-b from-zinc-50/90 via-zinc-50/50 to-transparent border border-zinc-200/70 p-6 sm:p-8 my-8 shadow-xs overflow-hidden transition-colors scroll-mt-12"
       aria-label="Technical skills cloud"
     >
       {/* Subtle organic light accent blur that connects the experience to projects flow */}
@@ -502,6 +502,7 @@ export function SkillsSection() {
         className="pointer-events-none absolute -top-20 left-1/3 size-64 rounded-full bg-[radial-gradient(circle,rgba(255,74,61,0.06)_0%,transparent_70%)] blur-2xl"
         aria-hidden
       />
+      <div className="absolute inset-0 pointer-events-none opacity-40 graph-grid" aria-hidden />
 
       {/* Header bar: Compact title + Category switcher */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-zinc-200/80">
