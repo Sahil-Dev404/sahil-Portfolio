@@ -131,7 +131,7 @@ export function ProjectsSection() {
           onClick={() => setInspectedItem(null)}
         >
           <div
-            className="relative w-full max-w-lg rounded-3xl bg-[#e9e6df] text-zinc-950 p-6 sm:p-8 shadow-2xl border border-white/20 animate-scaleUp"
+            className="relative w-full max-w-lg rounded-3xl bg-[#FAF9F5] text-zinc-950 p-6 sm:p-8 shadow-2xl border border-zinc-900/20 animate-scaleUp"
             onClick={(e) => e.stopPropagation()}
           >
             <button

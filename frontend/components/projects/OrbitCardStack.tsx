@@ -327,10 +327,10 @@ export function OrbitCardStack({
               tabIndex={0}
               aria-current={active ? "true" : undefined}
               className={cn(
-                "group absolute left-1/2 top-1/2 w-[min(82vw,21.5rem)] origin-bottom cursor-pointer rounded-[1.9rem] border border-black/10 bg-[#e9e6df] p-4 text-[#141414] outline-none select-none",
-                "shadow-[0_16px_40px_rgba(0,0,0,0.35)] hover:shadow-[0_28px_60px_rgba(0,0,0,0.55)]",
-                "transition-[transform,box-shadow] ease-[cubic-bezier(.2,.8,.2,1)] focus-visible:ring-2 focus-visible:ring-zinc-950/30 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
-                active && "ring-1 ring-black/15",
+                "group absolute left-1/2 top-1/2 w-[min(82vw,21.5rem)] origin-bottom cursor-pointer rounded-[1.9rem] border border-zinc-900/15 bg-gradient-to-b from-[#FCFBF8] via-[#FAF9F5] to-[#F4F2EB] p-4 text-[#141414] outline-none select-none",
+                "shadow-[0_18px_45px_rgba(0,0,0,0.20),0_4px_12px_rgba(0,0,0,0.06)] hover:shadow-[0_28px_60px_rgba(0,0,0,0.35)]",
+                "transition-[transform,box-shadow,border-color] ease-[cubic-bezier(.2,.8,.2,1)] focus-visible:ring-2 focus-visible:ring-zinc-950/30 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
+                active && "ring-1 ring-zinc-950/25 border-zinc-900/35",
                 cardClassName,
               )}
               style={style}
@@ -368,7 +368,7 @@ export function OrbitCardStack({
                 <Portrait item={item} />
                 <span
                   className={cn(
-                    "absolute right-3 top-3 grid size-11 place-items-center rounded-full bg-zinc-950 text-white shadow-lg shadow-black/25 transition-all duration-300",
+                    "absolute right-3 top-3 grid size-11 place-items-center rounded-full bg-zinc-950 text-white shadow-lg shadow-black/30 transition-all duration-300",
                     active
                       ? "scale-105 bg-black ring-2 ring-white/20"
                       : "opacity-90 group-hover:scale-105",
@@ -380,21 +380,24 @@ export function OrbitCardStack({
               </div>
 
               <div className="px-2 pb-2 pt-6">
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-zinc-500">
-                  {item.role}
-                </p>
-                <h3 className="mt-2 text-[2rem] font-semibold leading-none tracking-[-0.04em] text-zinc-950">
+                <div className="flex items-center justify-between">
+                  <p className="text-[0.72rem] font-mono font-bold uppercase tracking-[0.18em] text-zinc-700">
+                    {item.role}
+                  </p>
+                  <span className="size-1.5 rounded-full bg-zinc-950" />
+                </div>
+                <h3 className="mt-2 text-[2rem] font-semibold leading-none tracking-[-0.04em] text-zinc-950 font-[var(--display)]">
                   {item.name}
                 </h3>
-                <p className="mt-4 max-w-[17.5rem] text-[0.98rem] font-medium leading-[1.42] tracking-[-0.01em] text-zinc-700">
+                <p className="mt-4 max-w-[17.5rem] text-[0.96rem] font-medium leading-[1.42] tracking-[-0.01em] text-zinc-800">
                   {item.description}
                 </p>
-                <div className="mt-5 flex items-center justify-between border-t border-black/10 pt-4">
-                  <span className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-zinc-500">
+                <div className="mt-5 flex items-center justify-between border-t border-zinc-900/15 pt-4">
+                  <span className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-zinc-950 bg-zinc-950/5 px-2.5 py-0.5 rounded-sm border border-zinc-900/10">
                     {item.stat ?? "Research"}
                   </span>
                   {item.tag && (
-                    <span className="text-[0.65rem] font-medium tracking-wider text-zinc-400 uppercase">
+                    <span className="text-[0.65rem] font-mono font-semibold tracking-wider text-zinc-600 uppercase">
                       {item.tag}
                     </span>
                   )}

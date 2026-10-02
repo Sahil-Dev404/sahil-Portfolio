@@ -333,14 +333,12 @@ export default function Footer() {
     <footer
       ref={footerRef}
       onMouseMove={handleMouseMove}
-      className="relative w-full mt-14 sm:mt-16 mb-4 rounded-3xl sm:rounded-[2rem] bg-[#0B0B0D] text-white overflow-hidden border border-zinc-800/80 transition-all select-none shadow-xl"
-      style={{
-        boxShadow: "0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.04)",
-      }}
+      className="relative w-full mt-14 sm:mt-16 mb-4 rounded-3xl sm:rounded-[2.5rem] bg-gradient-to-b from-zinc-50/95 via-white to-zinc-50/80 text-zinc-950 overflow-hidden border border-zinc-200/80 transition-all select-none shadow-xs"
     >
-      {/* Subtle ambient glow matching site accent */}
+      {/* Subtle ambient lighting matching site aesthetic */}
       <div className="absolute top-0 right-1/4 w-[380px] h-[380px] bg-[radial-gradient(circle,rgba(255,74,61,0.05)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-[300px] h-[300px] bg-[radial-gradient(circle,rgba(59,130,246,0.04)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-[300px] h-[300px] bg-[radial-gradient(circle,rgba(59,130,246,0.03)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 pointer-events-none opacity-40 graph-grid" aria-hidden />
 
       {/* Main Content Container */}
       <div className="relative z-10 px-5 sm:px-8 lg:px-10 pt-7 sm:pt-9 pb-4 flex flex-col justify-between">
@@ -349,24 +347,24 @@ export default function Footer() {
           {/* Left Column: Live Location Badge & Headline */}
           <div className="flex-1 max-w-xl">
             {/* Live Location and Time Badge */}
-            <div className="flex items-center gap-2 text-[0.7rem] font-mono tracking-widest uppercase text-zinc-400 mb-3.5">
+            <div className="flex items-center gap-2 text-[0.7rem] font-mono tracking-widest uppercase text-zinc-500 mb-3.5">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-600" />
               </span>
               <span>PHILADELPHIA {currentTime || "10:26 AM"}</span>
             </div>
 
             {/* Serif Headline matching reference */}
             <h2
-              className="text-2xl sm:text-3xl lg:text-[2.4rem] font-normal leading-[1.16] tracking-tight text-zinc-100"
+              className="text-2xl sm:text-3xl lg:text-[2.4rem] font-normal leading-[1.16] tracking-tight text-zinc-950"
               style={{
                 fontFamily: "var(--font-display), Playfair Display, Georgia, serif",
               }}
             >
               Ready to create something cool together,
               <br />
-              <span className="text-zinc-400 italic">or just press the star</span>
+              <span className="text-zinc-500 italic">or just press the star</span>
             </h2>
           </div>
 
@@ -380,33 +378,32 @@ export default function Footer() {
               <nav className="flex flex-col gap-1.5 text-xs font-semibold tracking-wide">
                 <button
                   type="button"
-                  onClick={() => scrollTo("projects")}
-                  className="text-left text-zinc-300 hover:text-white transition-colors duration-150 cursor-pointer uppercase"
+                  onClick={() => scrollTo("experience")}
+                  className="text-left text-zinc-600 hover:text-zinc-950 transition-colors duration-150 cursor-pointer uppercase"
                 >
-                  WORK
+                  EXPERIENCE
                 </button>
                 <button
                   type="button"
                   onClick={() => scrollTo("skills")}
-                  className="text-left text-zinc-300 hover:text-white transition-colors duration-150 cursor-pointer uppercase"
+                  className="text-left text-zinc-600 hover:text-zinc-950 transition-colors duration-150 cursor-pointer uppercase"
                 >
-                  PLAYGROUND
+                  SKILLS
                 </button>
                 <button
                   type="button"
-                  onClick={() => scrollTo("experience")}
-                  className="text-left text-zinc-300 hover:text-white transition-colors duration-150 cursor-pointer uppercase"
+                  onClick={() => scrollTo("projects")}
+                  className="text-left text-zinc-600 hover:text-zinc-950 transition-colors duration-150 cursor-pointer uppercase"
                 >
-                  ABOUT
+                  PROJECTS
                 </button>
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-left text-zinc-300 hover:text-white transition-colors duration-150 cursor-pointer uppercase"
+                <button
+                  type="button"
+                  onClick={() => scrollTo("contact")}
+                  className="text-left text-zinc-600 hover:text-zinc-950 transition-colors duration-150 cursor-pointer uppercase"
                 >
-                  RESUME
-                </a>
+                  CONTACT
+                </button>
               </nav>
             </div>
 
@@ -420,26 +417,26 @@ export default function Footer() {
                   href="https://linkedin.com/in/sahil-saini"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-zinc-300 hover:text-white transition-colors duration-150 uppercase group"
+                  className="inline-flex items-center gap-1 text-zinc-600 hover:text-zinc-950 transition-colors duration-150 uppercase group"
                 >
                   <span>LINKEDIN</span>
-                  <ArrowUpRight className="size-3 text-zinc-500 group-hover:text-white transition-colors" />
+                  <ArrowUpRight className="size-3 text-zinc-400 group-hover:text-zinc-950 transition-colors" />
                 </a>
                 <a
                   href="https://github.com/Sahil-Dev404"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-zinc-300 hover:text-white transition-colors duration-150 uppercase group"
+                  className="inline-flex items-center gap-1 text-zinc-600 hover:text-zinc-950 transition-colors duration-150 uppercase group"
                 >
                   <span>GITHUB</span>
-                  <ArrowUpRight className="size-3 text-zinc-500 group-hover:text-white transition-colors" />
+                  <ArrowUpRight className="size-3 text-zinc-400 group-hover:text-zinc-950 transition-colors" />
                 </a>
                 <a
                   href="mailto:sahilsaini@example.com"
-                  className="inline-flex items-center gap-1 text-zinc-300 hover:text-white transition-colors duration-150 uppercase group"
+                  className="inline-flex items-center gap-1 text-zinc-600 hover:text-zinc-950 transition-colors duration-150 uppercase group"
                 >
                   <span>EMAIL</span>
-                  <ArrowUpRight className="size-3 text-zinc-500 group-hover:text-white transition-colors" />
+                  <ArrowUpRight className="size-3 text-zinc-400 group-hover:text-zinc-950 transition-colors" />
                 </a>
               </nav>
             </div>
@@ -448,7 +445,7 @@ export default function Footer() {
             <div className="pt-1 hidden sm:block">
               <div
                 title="A touch of blue inspiration"
-                className="w-3 h-3 rounded-full bg-[#1A56DB] shadow-[0_0_10px_rgba(26,86,219,0.7)] hover:scale-125 transition-transform duration-200 cursor-pointer animate-pulse"
+                className="w-3 h-3 rounded-full bg-[#1A56DB] shadow-[0_0_10px_rgba(26,86,219,0.4)] hover:scale-125 transition-transform duration-200 cursor-pointer animate-pulse"
               />
             </div>
           </div>
@@ -468,8 +465,8 @@ export default function Footer() {
                     marginLeft: index === 0 ? "0" : "-16px",
                   }}
                 >
-                  {/* Clean paper note card with NO bottom text, pure artwork */}
-                  <div className="w-18 h-18 sm:w-20 sm:h-20 md:w-22 md:h-22 bg-[#FAF9F5] rounded-sm p-1 shadow-[0_3px_12px_rgba(0,0,0,0.4)] border border-stone-200/90 transition-all duration-300 group-hover:scale-125 group-hover:-translate-y-3 group-hover:rotate-0 group-hover:z-40 group-hover:shadow-[0_16px_28px_rgba(0,0,0,0.6)]">
+                  {/* Clean paper note card with pure artwork */}
+                  <div className="w-18 h-18 sm:w-20 sm:h-20 md:w-22 md:h-22 bg-[#FAF9F5] rounded-sm p-1 shadow-[0_3px_12px_rgba(0,0,0,0.08)] border border-stone-200/90 transition-all duration-300 group-hover:scale-125 group-hover:-translate-y-3 group-hover:rotate-0 group-hover:z-40 group-hover:shadow-[0_16px_28px_rgba(0,0,0,0.2)]">
                     {/* Artwork / Doodle Box filling the card */}
                     <div className="relative w-full h-full bg-white rounded-xs overflow-hidden border border-stone-200/60 flex items-center justify-center">
                       {card.type === "image" && card.src ? (
@@ -494,15 +491,15 @@ export default function Footer() {
           <div className="relative ml-2 flex-shrink-0 z-30 flex flex-col items-center">
             {/* Pop-up Speech Bubble when Star is Clicked */}
             {starQuote && (
-              <div className="absolute -top-14 right-0 bg-white text-zinc-900 text-[0.72rem] font-medium px-3 py-1.5 rounded-lg shadow-xl border border-zinc-200 whitespace-nowrap animate-bounce flex items-center gap-1">
+              <div className="absolute -top-14 right-0 bg-zinc-950 text-white text-[0.72rem] font-medium px-3 py-1.5 rounded-lg shadow-xl border border-zinc-800 whitespace-nowrap animate-bounce flex items-center gap-1">
                 <span>{starQuote}</span>
-                <div className="absolute -bottom-1 right-6 w-2.5 h-2.5 bg-white rotate-45 border-r border-b border-zinc-200" />
+                <div className="absolute -bottom-1 right-6 w-2.5 h-2.5 bg-zinc-950 rotate-45 border-r border-b border-zinc-800" />
               </div>
             )}
 
             {/* Click Count Badge */}
             {starClicks > 0 && (
-              <span className="mb-0.5 text-[0.62rem] font-mono text-amber-400 font-bold tracking-wider animate-fade-in">
+              <span className="mb-0.5 text-[0.62rem] font-mono text-amber-600 font-bold tracking-wider animate-fade-in">
                 ⭐ {starClicks}
               </span>
             )}
@@ -519,15 +516,15 @@ export default function Footer() {
                 isStarAnimating ? "animate-spin" : ""
               }`}
               style={{
-                filter: "drop-shadow(0 4px 10px rgba(250, 204, 21, 0.35))",
+                filter: "drop-shadow(0 4px 12px rgba(250, 204, 21, 0.45))",
               }}
             >
               <svg
                 width="50"
                 height="50"
                 viewBox="0 0 100 100"
-                className="w-11 h-11 sm:w-13 sm:h-13 stroke-zinc-900 stroke-[3] stroke-linejoin-round"
-                fill="#E2E8F0"
+                className="w-11 h-11 sm:w-13 sm:h-13 stroke-zinc-950 stroke-[3] stroke-linejoin-round"
+                fill="#FACC15"
               >
                 {/* Five-point star */}
                 <path
@@ -541,7 +538,7 @@ export default function Footer() {
                      L 33 56 
                      L 8 37 
                      L 39 36 Z"
-                  fill="#D4D4D8"
+                  fill="#FACC15"
                   stroke="#18181B"
                 />
 
@@ -598,16 +595,16 @@ export default function Footer() {
         </div>
 
         {/* Bottom Metadata & Back to Top */}
-        <div className="border-t border-zinc-800/80 pt-3 mt-3 flex flex-col sm:flex-row items-center justify-between text-[0.7rem] font-mono text-zinc-500 gap-2">
+        <div className="border-t border-zinc-200/80 pt-3 mt-3 flex flex-col sm:flex-row items-center justify-between text-[0.7rem] font-mono text-zinc-500 gap-2">
           <div className="flex items-center gap-2">
             <span>&copy; {new Date().getFullYear()} Sahil Saini. All rights reserved.</span>
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-zinc-600 hidden sm:inline">Built with Next.js & PyTorch</span>
+            <span className="text-zinc-500 hidden sm:inline">Built with Next.js & PyTorch</span>
             <button
               type="button"
               onClick={scrollToTop}
-              className="text-zinc-400 hover:text-white transition-colors duration-150 cursor-pointer flex items-center gap-1 group"
+              className="text-zinc-600 hover:text-zinc-950 transition-colors duration-150 cursor-pointer flex items-center gap-1 group font-medium"
             >
               <span>Back to top</span>
               <span className="group-hover:-translate-y-0.5 transition-transform duration-150">↑</span>
