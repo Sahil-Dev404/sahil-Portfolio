@@ -541,7 +541,7 @@ export function SkillsSection() {
       </div>
 
       {/* Compact Interactive Pill Cloud on Light Palette */}
-      <div className="pt-6 pb-2 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 max-w-4xl mx-auto">
+      <div className="pt-6 pb-2 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 max-w-6xl 2xl:max-w-7xl mx-auto">
         {SKILL_PILLS.map((skill) => {
           const isDimmed = activeCategory !== "all" && skill.category !== activeCategory;
           const isHovered = hoveredSkill === skill.id;

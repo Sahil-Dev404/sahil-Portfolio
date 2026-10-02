@@ -106,7 +106,7 @@ export function ExperienceTimeline({
       </div>
 
       {/* Timeline Grid Container */}
-      <div className="relative max-w-4xl mx-auto">
+      <div className="relative max-w-5xl 2xl:max-w-6xl mx-auto">
         {/* Desktop / Tablet Layout: [Year Column (w-28)] [Cursive SVG Column (w-28)] [Details Column (flex-1)] */}
         <div className="relative hidden sm:block">
           {/* Background & Animated SVG Cursive Line */}

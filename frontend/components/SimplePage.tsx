@@ -22,10 +22,10 @@ export default function SimplePage({ onReplay }: Props) {
     <main
       className="min-h-screen bg-[var(--ground)] text-[var(--ink)] flex flex-col justify-between"
       style={{
-        paddingInline: "clamp(16px, 4vw, 48px)",
+        paddingInline: "clamp(12px, 2.5vw, 36px)",
       }}
     >
-      <div className="w-full max-w-[1240px] mx-auto min-h-screen flex flex-col justify-between py-8">
+      <div className="w-full max-w-[1680px] 2xl:max-w-[1840px] mx-auto min-h-screen flex flex-col justify-between py-6 sm:py-8">
         {/* Top bar with Navigation */}
         <header
           className="rise flex items-center justify-between gap-4 sticky top-4 z-50 bg-[var(--ground)]/90 backdrop-blur-md py-2.5 px-3 rounded-2xl border border-zinc-200/50 shadow-2xs"
@@ -76,7 +76,7 @@ export default function SimplePage({ onReplay }: Props) {
             <span className="text-[var(--accent)]">Engineered at Scale.</span>
           </h1>
           <p
-            className="rise max-w-2xl text-base md:text-lg font-normal leading-relaxed text-[var(--mute)] m-0"
+            className="rise max-w-3xl lg:max-w-4xl text-base md:text-lg font-normal leading-relaxed text-[var(--mute)] m-0"
             style={{
               fontFamily: "var(--body)",
               "--d": ".7s",

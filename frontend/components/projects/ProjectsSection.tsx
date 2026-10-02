@@ -4,25 +4,15 @@ import { useState } from "react";
 import {
   OrbitCardStack,
   AI_RESEARCH_PROJECTS,
-  DEFAULT_TEAM_ITEMS,
   type OrbitStackItem,
 } from "./OrbitCardStack";
-import { ArrowUpRight, Sparkles, Terminal, Layers, Code2, ExternalLink, X } from "lucide-react";
+import { ArrowUpRight, Sparkles, Terminal, Code2, ExternalLink, X } from "lucide-react";
 
 export function ProjectsSection() {
-  const [selectedDataset, setSelectedDataset] = useState<"ai" | "team">("ai");
+  const currentItems = AI_RESEARCH_PROJECTS;
   const [activeItem, setActiveItem] = useState<OrbitStackItem>(AI_RESEARCH_PROJECTS[2]!);
   const [activeIndex, setActiveIndex] = useState(2);
   const [inspectedItem, setInspectedItem] = useState<OrbitStackItem | null>(null);
-
-  const currentItems = selectedDataset === "ai" ? AI_RESEARCH_PROJECTS : DEFAULT_TEAM_ITEMS;
-
-  const handleDatasetChange = (dataset: "ai" | "team") => {
-    setSelectedDataset(dataset);
-    const newItems = dataset === "ai" ? AI_RESEARCH_PROJECTS : DEFAULT_TEAM_ITEMS;
-    setActiveItem(newItems[2]!);
-    setActiveIndex(2);
-  };
 
   const handleActiveChange = (item: OrbitStackItem, index: number) => {
     setActiveItem(item);
@@ -64,32 +54,10 @@ export function ProjectsSection() {
           </p>
         </div>
 
-        {/* Dataset Switcher Pill */}
-        <div className="flex items-center self-start md:self-auto p-1 rounded-full bg-zinc-100 border border-zinc-200/80 backdrop-blur-md">
-          <button
-            type="button"
-            onClick={() => handleDatasetChange("ai")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 cursor-pointer ${
-              selectedDataset === "ai"
-                ? "bg-zinc-950 text-white shadow-xs"
-                : "text-zinc-600 hover:text-zinc-950"
-            }`}
-          >
-            <Sparkles className="size-3.5" />
-            AI / ML Models
-          </button>
-          <button
-            type="button"
-            onClick={() => handleDatasetChange("team")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 cursor-pointer ${
-              selectedDataset === "team"
-                ? "bg-zinc-950 text-white shadow-xs"
-                : "text-zinc-600 hover:text-zinc-950"
-            }`}
-          >
-            <Layers className="size-3.5" />
-            Team Reference
-          </button>
+        {/* Category Badge */}
+        <div className="flex items-center self-start md:self-auto px-4 py-2 rounded-full bg-zinc-950 text-white text-xs font-semibold tracking-wider shadow-xs gap-2 select-none">
+          <Sparkles className="size-3.5 text-[#FF4A3D]" />
+          <span>AI / ML Models</span>
         </div>
       </div>
 
@@ -112,7 +80,6 @@ export function ProjectsSection() {
       {/* Orbit Card Stack Stage */}
       <div className="relative z-10 py-4 flex flex-col items-center justify-center">
         <OrbitCardStack
-          key={selectedDataset}
           items={currentItems}
           defaultActiveIndex={2}
           spread={168}
