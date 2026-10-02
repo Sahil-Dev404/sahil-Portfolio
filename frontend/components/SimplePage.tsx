@@ -9,6 +9,8 @@ import ContactSection from "./contact/ContactSection";
 import { RotateCcw } from "lucide-react";
 import Navbar from "./nav/Navbar";
 
+import Footer from "./footer/Footer";
+
 type Props = {
   onReplay: () => void;
 };
@@ -99,22 +101,15 @@ export default function SimplePage({ onReplay }: Props) {
           <ProjectsSection />
         </div>
 
-        {/* Contact Section matching reference image */}
+        {/* Contact Section */}
         <div className="rise" style={{ "--d": ".9s" } as CSSProperties}>
           <ContactSection />
         </div>
 
-        {/* Footer info */}
-        <footer
-          className="rise flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-[var(--mute)] border-t border-[var(--ink)]/10 pt-6 mt-8 gap-2"
-          style={{ "--d": ".9s", fontFamily: "var(--mono)" } as CSSProperties}
-        >
-          <span>&copy; {new Date().getFullYear()} {fullName}. All rights reserved.</span>
-          <span className="flex items-center gap-2">
-            <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            Open for research collaborations & select consulting
-          </span>
-        </footer>
+        {/* New Interactive Footer matching the reference screenshot */}
+        <div className="rise" style={{ "--d": ".95s" } as CSSProperties}>
+          <Footer />
+        </div>
       </div>
     </main>
   );
