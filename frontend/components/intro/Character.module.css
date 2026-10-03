@@ -1,24 +1,79 @@
-.svg { display: block; height: clamp(150px, min(42svh, 62vw), 460px); width: auto; overflow: visible; }
-.shadow { fill: var(--ink); opacity: .13; }
-.ol { stroke: var(--ink); fill: none; stroke-linecap: round; }
-.pants { stroke: var(--pants); fill: none; stroke-linecap: round; }
-.pants.far { stroke: var(--pants-far); }
-.hood { stroke: url(#dots); fill: none; stroke-linecap: round; }
-.skin { fill: #fff; stroke: var(--ink); stroke-width: 4; }
-.shoeBody { fill: #fff; stroke: var(--ink); stroke-width: 4; stroke-linejoin: round; }
-.sole { stroke: var(--ink); stroke-width: 6; stroke-linecap: round; fill: none; }
-.beanie { fill: var(--accent); stroke: var(--ink); stroke-width: 4; stroke-linejoin: round; }
-.line3 { stroke: var(--ink); stroke-width: 3; stroke-linecap: round; fill: none; }
-.hand { fill: #fff; stroke: var(--ink); stroke-width: 3.5; }
+.charWrapper {
+  position: relative;
+  /* Made significantly bigger as requested: clamp up to 580px width, 610px height */
+  --char-w: clamp(280px, min(48vw, 62svh), 580px);
+  width: var(--char-w);
+  height: calc(var(--char-w) * (451 / 429));
+  pointer-events: none;
+  user-select: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  overflow: visible;
+}
 
-.leg  { transform-origin: 88px 150px; animation: step .5s ease-in-out infinite alternate; }
-.leg.b { animation-direction: alternate-reverse; }
-.shoe { transform-origin: 88px 222px; animation: unstep .5s ease-in-out infinite alternate; }
-.leg.b .shoe { animation-direction: alternate-reverse; }
-.arm  { transform-origin: 122px 98px; animation: shove .5s ease-in-out infinite alternate; }
-.bob  { animation: bob .25s ease-in-out infinite alternate; }
+.fallbackImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: right bottom;
+  pointer-events: none;
+  user-select: none;
+  opacity: 1;
+  transition: opacity 0.2s ease-out;
+}
 
-@keyframes step   { from { transform: rotate(-28deg); } to { transform: rotate(28deg); } }
-@keyframes unstep { from { transform: rotate(28deg); }  to { transform: rotate(-28deg); } }
-@keyframes shove  { from { transform: rotate(-1.5deg); } to { transform: rotate(2deg); } }
-@keyframes bob    { from { transform: translateY(0); }   to { transform: translateY(-3px); } }
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lottieBox {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* Shift 13.6% right so hands hit the exact right edge against the black wall */
+  /* Shift 10% down so feet step right on the floor baseline */
+  transform: translateX(13.6%) translateY(10%);
+  transform-origin: right bottom;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  transition: opacity 0.15s ease-in;
+}
+
+.lottieBox svg {
+  width: 100% !important;
+  height: 100% !important;
+  overflow: visible !important;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.groundShadow {
+  position: absolute;
+  bottom: 0px;
+  right: 6%;
+  width: 82%;
+  height: 16px;
+  background: radial-gradient(ellipse at center, rgba(11, 11, 13, 0.22) 0%, transparent 72%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: shadowPulse 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes shadowPulse {
+  0% {
+    transform: scaleX(1);
+    opacity: 0.18;
+  }
+  100% {
+    transform: scaleX(0.92);
+    opacity: 0.26;
+  }
+}

@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 
+export type SkillCategory = "dl" | "ml" | "lang" | "data" | "nlp" | "tools" | "web";
+
 export interface SkillPill {
   id: string;
   name: string;
-  category: "dl" | "ml" | "lang" | "data" | "nlp" | "tools";
+  category: SkillCategory | SkillCategory[];
   glowColor: string;
   icon: () => React.JSX.Element;
   rotation?: number; // subtle organic tilt like in reference
@@ -63,7 +65,64 @@ export const SKILL_PILLS: SkillPill[] = [
     ),
   },
 
+  {
+    id: "javascript",
+    name: "JavaScript",
+    category: ["lang", "web"],
+    glowColor: "#F7DF1E",
+    rotation: -1.3,
+    icon: () => (
+      <svg className="size-4.5" viewBox="0 0 24 24">
+        <rect width="24" height="24" rx="4" fill="#F7DF1E" />
+        <path
+          d="M7 17.5c0 1.5 1 2.2 2.4 2.2 1.5 0 2.2-.7 2.2-2.1v-6.6h-2.1v6.5c0 .5-.2.8-.7.8s-.7-.3-.7-.8V13H6.1v4.5zm8.4 2.3c2.4 0 3.7-1.2 3.7-3.1 0-1.8-1.2-2.5-2.7-3.1l-.6-.2c-.7-.3-1.1-.6-1.1-1.1 0-.5.4-.9 1.1-.9.8 0 1.3.4 1.5 1l1.7-.8c-.5-1.2-1.6-1.7-3.1-1.7-2 0-3.3 1.1-3.3 2.9 0 1.6 1 2.4 2.4 3l.6.2c.8.3 1.4.6 1.4 1.3 0 .6-.5 1-1.4 1-.9 0-1.6-.5-1.9-1.2l-1.8.9c.5 1.4 1.8 2.1 3.5 2.1z"
+          fill="#000000"
+        />
+      </svg>
+    ),
+  },
+  {
+    id: "html",
+    name: "HTML",
+    category: ["lang", "web"],
+    glowColor: "#E34F26",
+    rotation: 1.5,
+    icon: () => (
+      <svg className="size-4.5" viewBox="0 0 24 24" fill="none">
+        <path d="M4 2l1.6 18 6.4 2 6.4-2L20 2H4z" fill="#E34F26" />
+        <path d="M12 3.7v16.5l4.9-1.5 1.3-15H12z" fill="#EF652A" />
+        <path d="M7.4 6.5h9.2l-.3 3.2H12v2.5h3.9l-.4 4.5-3.5 1-3.5-1-.2-2.5h2.1l.1 1.2 1.5.4 1.5-.4.2-1.9H7.2L7.4 6.5z" fill="#FFFFFF" />
+      </svg>
+    ),
+  },
+  {
+    id: "css",
+    name: "CSS",
+    category: ["lang", "web"],
+    glowColor: "#1572B6",
+    rotation: -1.8,
+    icon: () => (
+      <svg className="size-4.5" viewBox="0 0 24 24" fill="none">
+        <path d="M4 2l1.6 18 6.4 2 6.4-2L20 2H4z" fill="#1572B6" />
+        <path d="M12 3.7v16.5l4.9-1.5 1.3-15H12z" fill="#33A9DC" />
+        <path d="M7.4 6.5h9.2l-.3 3.2H9.8l.2 2.5h6.3l-.4 4.5-3.9 1.1-3.9-1.1-.3-3.1h2.1l.1 1.5 1.7.5 1.7-.5.2-1.9H7.3l.1-6.7z" fill="#FFFFFF" />
+      </svg>
+    ),
+  },
+
   // Deep Learning
+  {
+    id: "pytorch",
+    name: "PyTorch",
+    category: "dl",
+    glowColor: "#EE4C2C",
+    rotation: -1.6,
+    icon: () => (
+      <svg className="size-4.5" viewBox="0 0 24 24" fill="#EE4C2C">
+        <path d="M12.02 0c-.3 0-.58.15-.74.39L6.5 7.15c-.24.36-.18.84.15 1.12l2.36 1.99C7.45 12.04 6.5 14.42 6.5 17c0 4.14 3.36 7.5 7.5 7.5s7.5-3.36 7.5-7.5c0-4.71-3.46-8.73-8-9.42V.75c0-.41-.34-.75-.75-.75h-.23zm.48 2.25v4.29c3.34.66 5.86 3.59 5.86 7.08 0 3.14-2.43 5.72-5.51 5.97-3.08-.25-5.51-2.83-5.51-5.97 0-1.78.78-3.38 2.02-4.5l1.62 1.37c-.36.5-.58 1.11-.58 1.77 0 1.66 1.34 3 3 3s3-1.34 3-3-1.34-3-3-3c-.15 0-.3.02-.44.05L12.5 2.25zM17.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
+      </svg>
+    ),
+  },
   {
     id: "tensorflow",
     name: "TensorFlow",
@@ -451,9 +510,52 @@ export const SKILL_PILLS: SkillPill[] = [
     ),
   },
   {
+    id: "fastapi",
+    name: "FastAPI",
+    category: ["web", "tools"],
+    glowColor: "#009688",
+    rotation: 1.8,
+    icon: () => (
+      <svg className="size-4.5" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="10" fill="#009688" />
+        <path
+          d="M13 3.5L6.5 13H12L11 20.5L17.5 11H12.5L13 3.5Z"
+          fill="white"
+        />
+      </svg>
+    ),
+  },
+  {
+    id: "react",
+    name: "React",
+    category: "web",
+    glowColor: "#61DAFB",
+    rotation: -1.7,
+    icon: () => (
+      <svg className="size-4.5" viewBox="0 0 24 24" fill="none">
+        <ellipse cx="12" cy="12" rx="4" ry="10" stroke="#00D8FF" strokeWidth="1.5" transform="rotate(30 12 12)" />
+        <ellipse cx="12" cy="12" rx="4" ry="10" stroke="#00D8FF" strokeWidth="1.5" transform="rotate(90 12 12)" />
+        <ellipse cx="12" cy="12" rx="4" ry="10" stroke="#00D8FF" strokeWidth="1.5" transform="rotate(150 12 12)" />
+        <circle cx="12" cy="12" r="2" fill="#00D8FF" />
+      </svg>
+    ),
+  },
+  {
+    id: "tailwindcss",
+    name: "TailwindCSS",
+    category: "web",
+    glowColor: "#06B6D4",
+    rotation: 1.5,
+    icon: () => (
+      <svg className="size-4.5" viewBox="0 0 24 24" fill="#06B6D4">
+        <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.336 6.182 14.975 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.336 13.382 8.975 12 6.001 12z" />
+      </svg>
+    ),
+  },
+  {
     id: "flask",
     name: "Flask",
-    category: "tools",
+    category: ["web", "tools"],
     glowColor: "#1F2937",
     rotation: 2,
     icon: () => (
@@ -487,6 +589,7 @@ export function SkillsSection() {
     { id: "ml", label: "Machine Learning" },
     { id: "data", label: "Data & Analytics" },
     { id: "nlp", label: "NLP" },
+    { id: "web", label: "Web & Full-Stack" },
     { id: "lang", label: "Languages" },
     { id: "tools", label: "MLOps & Tools" },
   ];
@@ -544,7 +647,11 @@ export function SkillsSection() {
       {/* Compact Interactive Pill Cloud on Light Palette */}
       <div className="pt-6 pb-2 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 max-w-6xl 2xl:max-w-7xl mx-auto">
         {SKILL_PILLS.map((skill) => {
-          const isDimmed = activeCategory !== "all" && skill.category !== activeCategory;
+          const isDimmed =
+            activeCategory !== "all" &&
+            (Array.isArray(skill.category)
+              ? !skill.category.includes(activeCategory as SkillCategory)
+              : skill.category !== activeCategory);
           const isHovered = hoveredSkill === skill.id;
           const Icon = skill.icon;
 

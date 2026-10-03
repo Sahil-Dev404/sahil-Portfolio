@@ -55,7 +55,7 @@ body {
 .count span:last-child { font-variant-numeric: tabular-nums; }
 
 /* The character's feet sit on the bottom edge of the name block. */
-.kid { position: absolute; left: 0; bottom: calc(50% - .82 * var(--size) - 4px); will-change: transform; }
+.kid { position: absolute; left: 0; bottom: calc(50% - .82 * var(--size) - 4px); display: flex; align-items: flex-end; will-change: transform; }
 
 /* Reveal of the simple page after the name page starts to leave */
 @media (prefers-reduced-motion: no-preference) {

@@ -717,12 +717,12 @@ export default function DeskCollageHero({
               <div className="grid grid-cols-2 gap-2">
                 {/* Polaroid 1: Workstation Setup */}
                 <div className="bg-white p-1 pb-1.5 rounded-xs shadow-xs border border-stone-200 rotate-[-2deg] transition-transform hover:scale-105">
-                  <div className="relative w-full h-18 sm:h-20 rounded-2xs overflow-hidden bg-zinc-100">
+                  <div className="relative w-full h-18 sm:h-20 rounded-2xs overflow-hidden bg-black">
                     <Image
-                      src="/hero-collage/setup.jpg"
-                      alt="Developer desk setup"
+                      src="/hero-collage/sahil-laptop-crisp.jpg"
+                      alt="Sahil Saini dev workstation laptop"
                       fill
-                      className="object-cover"
+                      className="object-contain object-center"
                       sizes="140px"
                     />
                   </div>

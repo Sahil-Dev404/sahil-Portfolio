@@ -12,16 +12,28 @@ import {
   useState,
 } from "react";
 
+export interface ProjectDiagramStep {
+  step: string;
+  title: string;
+  desc: string;
+}
+
 export interface OrbitStackItem {
   name: string;
   role: string;
   description: string;
+  longDescription?: string;
   accent?: string;
   initials?: string;
   stat?: string;
   image?: string;
   tag?: string;
   href?: string;
+  tech?: string;
+  github?: string;
+  live?: string;
+  highlights?: string[];
+  diagramSteps?: ProjectDiagramStep[];
 }
 
 export interface OrbitCardStackProps {
@@ -41,64 +53,120 @@ export interface OrbitCardStackProps {
  */
 export const AI_RESEARCH_PROJECTS: OrbitStackItem[] = [
   {
-    name: "ReasoningGraph",
-    role: "Reasoning & RL",
+    name: "Student Performance Predictor",
+    role: "End-to-End Machine Learning Pipeline",
     description:
-      "Tree-of-thought Monte Carlo policy search with verifier-guided pruning for rigorous LLM mathematical reasoning.",
+      "End-to-end ML system predicting student mathematics scores from 7 demographic & academic indicators, achieving R² = 0.88 with Linear Regression.",
+    longDescription:
+      "A production-grade, modular ML pipeline built from the ground up to predict student exam performance. Features systematic exploratory data analysis, automated ColumnTransformer pipelines (OneHotEncoder for categorical features + StandardScaler for numerical scores), benchmark evaluation across 9 regression algorithms (Linear Regression, Ridge, Lasso, KNN, Decision Tree, Random Forest, XGBoost, CatBoost, AdaBoost), and live inference serving via a Flask web application on Render.",
+    tech: "Python · Scikit-learn · CatBoost · XGBoost · Flask · Pandas · Render",
     accent: "#f8d66d",
-    initials: "RG",
-    stat: "SOTA AIME '24",
-    tag: "Reinforcement Learning",
-    image: "/images/orbit-card-stack/reasoning-graph.png",
-    href: "https://github.com",
+    initials: "SP",
+    stat: "R² = 0.88",
+    tag: "Regression Analysis",
+    image: "/images/projects/student-performance-architecture.jpg",
+    github: "https://github.com/Sahil-Dev404/End-to-End-Student-Performance-Indicator",
+    live: "https://end-to-end-student-performance-indicator.onrender.com/",
+    highlights: [
+      "1,000 student records analyzed across 7 demographic, parental education, lunch, and test prep indicators.",
+      "Benchmarked 9 regression algorithms; Linear Regression achieved top generalization with R² = 0.88 and lowest variance.",
+      "Industrial MLOps architecture: decoupled Data Ingestion, Data Transformation, Model Trainer, and Prediction pipelines.",
+      "Custom logging and exception handling framework with automated artifact serialization (model.pkl, preprocessor.pkl).",
+    ],
+    diagramSteps: [
+      { step: "01", title: "Raw Data Ingestion", desc: "Ingests 1,000 records across 7 demographic & academic features with automated train/test splits" },
+      { step: "02", title: "ColumnTransformer Pipeline", desc: "OneHotEncoder for categorical features & StandardScaler for numerical scores" },
+      { step: "03", title: "Multi-Model Benchmark", desc: "Evaluated 9 regressors (Linear, Ridge, Lasso, KNN, DT, RF, XGBoost, CatBoost, AdaBoost)" },
+      { step: "04", title: "Optimal Model Selection", desc: "Linear Regression achieved R² = 0.88 with minimal complexity and robust generalization" },
+      { step: "05", title: "Flask & Render Deployment", desc: "Interactive prediction UI & REST endpoints deployed live on Render cloud platform" },
+    ],
   },
   {
-    name: "LatentFlow",
-    role: "Diffusion & Geometry",
+    name: "Shelf Sense — Book Recommender",
+    role: "Content-Based NLP Recommendation Engine",
     description:
-      "Optimal transport flow-matching trajectory optimization yielding 8x faster high-fidelity 3D geometric synthesis.",
+      "Content-based recommendation engine utilizing NLTK, Gensim embeddings, and TF-IDF Cosine Similarity across 15,000 features to match books semantically.",
+    longDescription:
+      "An intelligent information retrieval system that maps literary semantic proximity across thousands of titles. Merges book synopses, author backgrounds, genres, and contextual metadata into high-dimensional representations, computing directional cosine similarity to deliver nuanced recommendations with instant autocomplete search.",
+    tech: "Python 3.10+ · Scikit-learn · NLTK · Gensim · Flask · Gunicorn · Render",
     accent: "#78dcca",
-    initials: "LF",
-    stat: "NeurIPS '24 Oral",
-    tag: "Generative Models",
-    image: "/images/orbit-card-stack/diffusion-geometry.png",
-    href: "https://github.com",
+    initials: "SS",
+    stat: "15K Features",
+    tag: "Recommendation System",
+    image: "/images/projects/book-recommendation-architecture.jpg",
+    github: "https://github.com/Sahil-Dev404/Book-Recommendation-System",
+    live: "https://book-recommendation-system-l2x7.onrender.com/",
+    highlights: [
+      "NLTK text normalization pipeline: tokenization, custom literary stopword suppression, and lemmatization.",
+      "High-dimensional TF-IDF vectorization with 15,000 unigram/bigram n-gram features and Gensim embeddings.",
+      "Sub-15ms Cosine Similarity scoring across book feature vectors for instant top-N candidate retrieval.",
+      "Fast, lightweight Flask + Gunicorn web interface with live fuzzy-matched title autocomplete and health monitoring.",
+    ],
+    diagramSteps: [
+      { step: "01", title: "Corpus & Metadata Ingestion", desc: "Ingests rich book titles, author profiles, genres, descriptions, and ratings" },
+      { step: "02", title: "NLP Text Normalization", desc: "Tokenization, punctuation stripping, custom stopword suppression, and WordNet lemmatization" },
+      { step: "03", title: "Vectorization & Embeddings", desc: "Constructs a 15,000-dimensional TF-IDF matrix capturing semantic literary relationships" },
+      { step: "04", title: "Pairwise Cosine Metric", desc: "Computes directional cosine similarity matrix between query books and corpus candidates" },
+      { step: "05", title: "Ranking & Autocomplete API", desc: "Flask & Gunicorn backend delivers ranked top-K recommendations with live search" },
+    ],
   },
   {
-    name: "SwarmMind",
-    role: "Autonomous Agents",
+    name: "SOCLens — Compliance AI",
+    role: "Automated Security Audit & Compliance",
     description:
-      "Asynchronous multi-agent coordination protocol featuring shared episodic memory and deterministic tool synthesis.",
-    accent: "#f3f1ea",
-    initials: "SM",
-    stat: "86.2% SWE-Bench",
-    tag: "Agent Swarms",
-    image: "/images/orbit-card-stack/neural-agent.png",
-    href: "https://github.com",
-  },
-  {
-    name: "OmniPerceive",
-    role: "Vision-Language",
-    description:
-      "Unified cross-attention architecture aligning continuous audio waveforms and spatial visual tokens in real time.",
+      "Privacy-first platform that parses multi-page SOC 2 Type 1 & 2 audit PDFs, extracting controls, exceptions, subservice orgs, and mapping CUECs using TF-IDF.",
+    longDescription:
+      "A privacy-centric compliance intelligence platform designed to eliminate the manual overhead of vendor security reviews. Ingests 100+ page SOC 2 Type 1 and Type 2 audit PDFs, performs native text extraction with Tesseract OCR fallback, and automatically maps Complementary User Entity Controls (CUECs) to internal controls using TF-IDF cosine similarity, exporting structured data to JSON and Excel.",
+    tech: "FastAPI · Uvicorn · Python 3.11 · Scikit-learn · Tesseract OCR · React · Vite · Vercel",
     accent: "#b9a7ff",
-    initials: "OP",
-    stat: "ICLR '25 Spotlight",
-    tag: "Multimodal AI",
-    image: "/images/orbit-card-stack/multimodal-vision.png",
-    href: "https://github.com",
+    initials: "SL",
+    stat: "SOC 2 Type 1 & 2",
+    tag: "Compliance Engineering",
+    image: "/images/projects/soclens-architecture.jpg",
+    github: "https://github.com/Sahil-Dev404/System-and-Organization-controls-2-report-info-extraction",
+    live: "https://system-and-organization-controls-2.vercel.app/",
+    highlights: [
+      "100% private, on-premise execution: parses confidential audit PDFs locally with zero external LLM API leakage.",
+      "Automated extraction of report metadata, auditor opinion letters, control exceptions, and subservice vendor risks.",
+      "CUEC mapping engine: applies TF-IDF and Cosine Similarity to map vendor controls to internal controls (Mapped, Partial, Gap).",
+      "Full-stack architecture: asynchronous FastAPI backend on Render with modern React/Vite frontend on Vercel and multi-sheet Excel export.",
+    ],
+    diagramSteps: [
+      { step: "01", title: "PDF Validation & Ingestion", desc: "Magic-byte (%PDF) verification and streaming upload supporting files up to 50MB" },
+      { step: "02", title: "Text Parsing & OCR Fallback", desc: "Extracts native PDF text streams with automatic Tesseract OCR fallback for scanned pages" },
+      { step: "03", title: "Heuristic Section Segmentation", desc: "Segments Scope, Auditor's Opinion, System Description, and Test Exceptions" },
+      { step: "04", title: "CUEC Semantic Alignment", desc: "TF-IDF vector matching maps vendor CUECs against internal controls with confidence scoring" },
+      { step: "05", title: "Interactive React Dashboard", desc: "Real-time compliance dashboard on Vercel with structured JSON & styled Excel workbook export" },
+    ],
   },
   {
-    name: "FlashTensor-X",
-    role: "Systems & Kernels",
+    name: "Forest Fire Prediction System",
+    role: "Meteorological ML & Wildfire Modeling",
     description:
-      "Hand-tuned Triton & CUDA FlashAttention-3 kernels with SRAM memory tiling achieving sub-millisecond TTFT on H100.",
-    accent: "#ff9d77",
-    initials: "FT",
-    stat: "4.2x Throughput",
-    tag: "Inference Engine",
-    image: "/images/orbit-card-stack/cuda-tensor-kernel.png",
-    href: "https://github.com",
+      "Predicts Algerian Forest Fire Weather Index (FWI) from 246 meteorological records, achieving R² = 0.9842 using L2 Ridge Regularization.",
+    longDescription:
+      "An end-to-end meteorological machine learning system designed to forecast the Forest Fire Weather Index (FWI) using 246 observations from the Bejaia and Sidi Bel-abbes regions of Algeria. Evaluates temperature, relative humidity, wind speed, precipitation, and moisture indices (FFMC, DMC, ISI) to predict fire hazard severity, deployed as a live cloud application on Render.",
+    tech: "Python · Scikit-learn · Flask · Pandas · NumPy · Render",
+    accent: "#ff9f68",
+    initials: "FF",
+    stat: "R² = 0.9842",
+    tag: "Wildfire Modeling",
+    image: "/images/projects/forest-fire-architecture.jpg",
+    github: "https://github.com/Sahil-Dev404/forest-fire-ml",
+    live: "https://forest-fire-ml-2.onrender.com/",
+    highlights: [
+      "246 meteorological records analyzed spanning temperature, RH, wind speed, rain, FFMC, DMC, and ISI.",
+      "Conducted extensive EDA, correlation heatmaps, and multicollinearity handling across Algerian wildfire zones.",
+      "Ridge Regression model achieved exceptional accuracy with R² = 0.9842, MSE = 0.045, and MAE = 0.158.",
+      "Lightweight, production-ready Flask application deployed live on Render with automated standard scaling inference.",
+    ],
+    diagramSteps: [
+      { step: "01", title: "Climatic Data Ingestion", desc: "246 observations spanning Algerian regions (Temperature, Humidity, Wind, Rain, FFMC, DMC, ISI)" },
+      { step: "02", title: "Data Preprocessing & Scaling", desc: "Handling missing data, feature scaling via StandardScaler, and regional categorical encoding" },
+      { step: "03", title: "Regression Benchmarking", desc: "Evaluated Linear, Ridge, Lasso, and ElasticNet models against Fire Weather Index (FWI)" },
+      { step: "04", title: "Ridge Regularization (λ=1.0)", desc: "Achieved outstanding predictive accuracy with R² = 0.9842 and minimal generalization error" },
+      { step: "05", title: "Cloud Web Deployment", desc: "Flask microservice deployed live on Render for real-time hazard estimation and scoring" },
+    ],
   },
 ];
 
@@ -222,7 +290,7 @@ export function OrbitCardStack({
   items = AI_RESEARCH_PROJECTS,
   className,
   cardClassName,
-  defaultActiveIndex = 2,
+  defaultActiveIndex = 1,
   spread = 168,
   lift = 38,
   onActiveChange,
@@ -300,7 +368,7 @@ export function OrbitCardStack({
     >
       <div
         ref={stageRef}
-        className="relative h-[530px] w-full max-w-[1040px] flex items-center justify-center"
+        className="relative h-[530px] sm:h-[550px] w-full max-w-[1040px] flex items-center justify-center"
         onMouseLeave={close}
         onBlur={leaveFocus}
         role="list"
@@ -327,7 +395,7 @@ export function OrbitCardStack({
               tabIndex={0}
               aria-current={active ? "true" : undefined}
               className={cn(
-                "group absolute left-1/2 top-1/2 w-[min(82vw,21.5rem)] origin-bottom cursor-pointer rounded-[1.9rem] border border-zinc-900/15 bg-gradient-to-b from-[#FCFBF8] via-[#FAF9F5] to-[#F4F2EB] p-4 text-[#141414] outline-none select-none",
+                "group absolute left-1/2 top-1/2 w-[min(82vw,21.5rem)] h-[500px] sm:h-[515px] flex flex-col justify-between origin-bottom cursor-pointer rounded-[1.9rem] border border-zinc-900/15 bg-gradient-to-b from-[#FCFBF8] via-[#FAF9F5] to-[#F4F2EB] p-4 text-[#141414] outline-none select-none",
                 "shadow-[0_18px_45px_rgba(0,0,0,0.20),0_4px_12px_rgba(0,0,0,0.06)] hover:shadow-[0_28px_60px_rgba(0,0,0,0.35)]",
                 "transition-[transform,box-shadow,border-color] ease-[cubic-bezier(.2,.8,.2,1)] focus-visible:ring-2 focus-visible:ring-zinc-950/30 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
                 active && "ring-1 ring-zinc-950/25 border-zinc-900/35",
@@ -364,7 +432,7 @@ export function OrbitCardStack({
                 }
               }}
             >
-              <div className="relative">
+              <div className="relative shrink-0">
                 <Portrait item={item} />
                 <span
                   className={cn(
@@ -379,20 +447,30 @@ export function OrbitCardStack({
                 </span>
               </div>
 
-              <div className="px-2 pb-2 pt-6">
-                <div className="flex items-center justify-between">
-                  <p className="text-[0.72rem] font-mono font-bold uppercase tracking-[0.18em] text-zinc-700">
-                    {item.role}
+              <div className="px-2 pb-1 pt-3.5 flex-1 flex flex-col justify-between overflow-hidden">
+                <div className="flex-1 flex flex-col">
+                  <div className="flex items-center justify-between">
+                    <p className="text-[0.72rem] font-mono font-bold uppercase tracking-[0.18em] text-zinc-700">
+                      {item.role}
+                    </p>
+                    <span className="size-1.5 rounded-full bg-zinc-950" />
+                  </div>
+                  <h3 className="mt-1.5 text-[1.45rem] sm:text-[1.6rem] font-semibold leading-tight tracking-[-0.03em] text-zinc-950 font-[var(--display)] min-h-[2.4rem] sm:min-h-[2.6rem] flex items-center">
+                    {item.name}
+                  </h3>
+                  <p className="mt-1 max-w-[17.5rem] text-[0.82rem] sm:text-[0.86rem] font-medium leading-[1.38] tracking-[-0.01em] text-zinc-700 line-clamp-3">
+                    {item.description}
                   </p>
-                  <span className="size-1.5 rounded-full bg-zinc-950" />
+                  {item.tech && (
+                    <div className="mt-auto pt-2 border-t border-zinc-900/10">
+                      <p className="text-[0.65rem] font-mono font-medium text-zinc-600 truncate">
+                        {item.tech}
+                      </p>
+                    </div>
+                  )}
                 </div>
-                <h3 className="mt-2 text-[2rem] font-semibold leading-none tracking-[-0.04em] text-zinc-950 font-[var(--display)]">
-                  {item.name}
-                </h3>
-                <p className="mt-4 max-w-[17.5rem] text-[0.96rem] font-medium leading-[1.42] tracking-[-0.01em] text-zinc-800">
-                  {item.description}
-                </p>
-                <div className="mt-5 flex items-center justify-between border-t border-zinc-900/15 pt-4">
+
+                <div className="mt-2.5 flex items-center justify-between border-t border-zinc-900/15 pt-2.5 shrink-0">
                   <span className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-zinc-950 bg-zinc-950/5 px-2.5 py-0.5 rounded-sm border border-zinc-900/10">
                     {item.stat ?? "Research"}
                   </span>

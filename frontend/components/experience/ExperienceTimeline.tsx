@@ -22,36 +22,43 @@ export interface ExperienceItem {
 export const DEFAULT_EXPERIENCES: ExperienceItem[] = [
   {
     id: "exp-1",
-    year: "2023",
-    period: "2023 – Present",
-    company: "Autonomous Intelligence Lab",
-    role: "Senior AI/ML Researcher",
-    location: "San Francisco, CA",
+    year: "Now",
+    period: "2026 – Present",
+    company: "University",
+    role: "AI Researcher & Project Builder",
+    location: "On-Campus",
     description:
-      "Conducting research on verifiable LLM reasoning architectures, tree-of-thought search policies, and custom GPU inference kernels.",
-    skills: ["PyTorch", "CUDA / Triton", "RLHF", "Reasoning Models"],
+      "Conducting academic research in Graph Neural Networks (GNNs) and geometric deep learning at university, while actively working on innovative personal AI/ML projects and building full-stack intelligent systems.",
+    skills: [
+      "Graph Neural Networks (GNNs)",
+      "Personal AI Projects",
+      "PyTorch Geometric",
+      "Geometric Deep Learning",
+      "Python",
+      "ML Systems",
+    ],
   },
   {
     id: "exp-2",
-    year: "2021",
-    period: "2021 – 2023",
-    company: "Volkswagen Group (Edit Company)",
-    role: "Fullstack / Machine Learning Engineer",
-    location: "Munich, Germany",
+    year: "2026",
+    period: "June,26 - Sept,26",
+    company: "FlyRank AI",
+    role: "ML Intern",
+    location: "Remote",
     description:
-      "Architected computer vision pipelines and sensor fusion algorithms for vehicle telemetry, paired with high-performance real-time APIs.",
-    skills: ["Python", "FastAPI", "TensorFlow", "Kubernetes", "Next.js"],
+      "Developed a leakage-aware multiclass ML pipeline to forecast content performance states – Growing, Declining, Stable, and Recovering using historical search intelligence and engagement signals.",
+    skills: ["Machine Learning", "TensorFlow", "Multiclass Classification", "Python", "Feature Engineering", "Predictive Modeling"],
   },
   {
     id: "exp-3",
-    year: "2019",
-    period: "2019 – 2021",
-    company: "Volkswagen Passenger Cars (Edit Company)",
-    role: "Junior Software Engineer",
-    location: "Wolfsburg, Germany",
+    year: "2026",
+    period: "June,26 - Aug,26",
+    company: "IBM SkillsBuild",
+    role: "AI Intern",
+    location: "Remote",
     description:
-      "Built telemetry data ingestion engines, automated QA frameworks, and robust microservices supporting internal engineering workflows.",
-    skills: ["TypeScript", "Python", "Docker", "CI/CD"],
+      "Completed an intensive 6-week virtual internship focused on Agentic AI, autonomous workflows, and process automation with n8n and LangGraph. Collaborated in a cross-functional team to architect and build an intelligent project tackling the United Nations Sustainable Development Goals (UN SDGs).",
+    skills: ["Agentic AI", "LangGraph", "n8n", "Automation", "Python", "UN SDGs"],
   },
 ];
 
@@ -176,13 +183,17 @@ export function ExperienceTimeline({
                   {/* Right Column: Normal Editable Text for Company & Role */}
                   <div className="flex-1 pl-4 pt-1">
                     <div className="p-4 sm:p-5 rounded-2xl bg-zinc-50/80 hover:bg-white border border-zinc-200/80 hover:border-zinc-300 transition-all duration-300 shadow-sm hover:shadow-md">
-                      {/* Period & Role line (e.g. "2021 - 2023 (Volkswagen Group): Fullstack Software Engineer") */}
-                      <div className="text-xs sm:text-sm font-normal text-zinc-600 leading-snug">
-                        <span className="font-semibold text-zinc-900">
-                          {item.period} ({item.company}):
-                        </span>{" "}
-                        <span className="font-bold text-zinc-950">
+                      {/* Role at Company [ Period ] */}
+                      <div className="text-xs sm:text-sm font-normal text-zinc-800 leading-snug">
+                        <span className="font-bold text-zinc-950 text-sm sm:text-base">
                           {item.role}
+                        </span>{" "}
+                        <span className="text-zinc-500 font-medium">at</span>{" "}
+                        <span className="font-semibold text-zinc-900">
+                          {item.company}
+                        </span>{" "}
+                        <span className="text-zinc-500 font-mono text-[0.72rem] sm:text-[0.75rem] font-normal ml-1">
+                          [{item.period}]
                         </span>
                       </div>
 
@@ -231,11 +242,13 @@ export function ExperienceTimeline({
                 <div className="text-lg font-bold text-[#1F2438] font-[var(--display)]">
                   {item.year}
                 </div>
-                <div className="mt-1 text-xs font-normal text-zinc-700 leading-snug">
-                  <span className="font-semibold text-zinc-900">
-                    {item.period} ({item.company}):
-                  </span>{" "}
-                  <span className="font-bold text-zinc-950">{item.role}</span>
+                <div className="mt-1 text-xs font-normal text-zinc-800 leading-snug">
+                  <span className="font-bold text-zinc-950">{item.role}</span>{" "}
+                  <span className="text-zinc-500 font-medium">at</span>{" "}
+                  <span className="font-semibold text-zinc-900">{item.company}</span>{" "}
+                  <span className="text-zinc-500 font-mono text-[0.72rem] font-normal block sm:inline mt-0.5 sm:mt-0">
+                    [{item.period}]
+                  </span>
                 </div>
                 <p className="mt-2 text-xs text-zinc-600 leading-relaxed">
                   {item.description}
