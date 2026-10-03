@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <!-- Rich Blue Gradient -->
+    <radialGradient id="in-bg" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#1483ea"/>
+      <stop offset="55%" stop-color="#0A66C2"/>
+      <stop offset="100%" stop-color="#084e96"/>
+    </radialGradient>
+
+    <!-- Glossy Dome Arc Highlight -->
+    <linearGradient id="gloss-arc" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Bottom ambient shade -->
+    <linearGradient id="rim-shade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Physical Badge Drop Bevel (Die-cut Sticker Rim) -->
+  <circle cx="128" cy="128" r="126" fill="#f8fafc"/>
+  <circle cx="128" cy="128" r="124" fill="url(#rim-shade)"/>
+
+  <!-- Main Enamel Core -->
+  <circle cx="128" cy="128" r="121" fill="url(#in-bg)"/>
+
+  <!-- Top Curved Gloss Highlight Dome -->
+  <path d="M15 110 C25 50, 75 15, 128 15 C181 15, 231 50, 241 110 C190 85, 66 85, 15 110 Z" fill="url(#gloss-arc)"/>
+
+  <!-- White LinkedIn Glyph with subtle drop shadow for depth -->
+  <g fill="#FFFFFF" filter="drop-shadow(0px 2px 3px rgba(0,0,0,0.25))">
+    <circle cx="82" cy="79" r="15"/>
+    <rect x="69.5" y="102" width="25" height="82" rx="4"/>
+    <path d="M110.5 102 h23.5 v11.8 h.4 c3.3-6.2 11.4-12.8 23.4-12.8 25 0 29.7 16.5 29.7 37.9 V184 h-25 v-39.5 c0-9.4-.2-21.5-13.1-21.5-13.1 0-15.1 10.2-15.1 20.8 V184 h-23.8 V102 z"/>
+  </g>
+
+  <!-- Inner crisp highlight ring -->
+  <circle cx="128" cy="128" r="120" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.25"/>
+</svg>

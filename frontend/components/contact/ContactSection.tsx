@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ArrowUpRight, Check, Copy } from "lucide-react";
+import { GitHubIcon, LinkedInIcon } from "@/components/icons/SocialIcons";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -16,7 +17,7 @@ export function ContactSection() {
   // Boiler email - easily editable by user
   const contactEmail = "sahilsaini@example.com";
   const contactPhone = "+1 720-813-5491";
-  const contactLinkedin = "in/sahil-saini";
+  const contactLinkedin = "in/sahil-saini-a47b40324";
   const contactGithub = "@Sahil-Dev404";
 
   const handleCopyEmail = async () => {
@@ -156,33 +157,35 @@ export function ContactSection() {
 
             {/* LINKEDIN */}
             <div className="py-4 flex items-center justify-between gap-3 text-xs sm:text-sm">
-              <span className="font-mono text-zinc-400 uppercase tracking-widest text-[0.7rem] sm:text-xs">
+              <span className="font-mono text-zinc-400 uppercase tracking-widest text-[0.7rem] sm:text-xs flex items-center gap-1.5">
+                <LinkedInIcon className="size-3.5 fill-[#0A66C2]" />
                 Linkedin
               </span>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/sahil-saini-a47b40324/"
                 target="_blank"
-                rel="noreferrer"
-                className="group text-zinc-900 hover:text-[#FF4A3D] font-medium flex items-center gap-1 transition-colors"
+                rel="noopener noreferrer"
+                className="group text-zinc-900 hover:text-[#0A66C2] font-medium flex items-center gap-1 transition-colors"
               >
                 <span>{contactLinkedin}</span>
-                <ArrowUpRight className="size-3.5 text-zinc-400 group-hover:text-[#FF4A3D] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ArrowUpRight className="size-3.5 text-zinc-400 group-hover:text-[#0A66C2] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
             </div>
 
             {/* GITHUB */}
             <div className="py-4 flex items-center justify-between gap-3 text-xs sm:text-sm">
-              <span className="font-mono text-zinc-400 uppercase tracking-widest text-[0.7rem] sm:text-xs">
+              <span className="font-mono text-zinc-400 uppercase tracking-widest text-[0.7rem] sm:text-xs flex items-center gap-1.5">
+                <GitHubIcon className="size-3.5 fill-zinc-800" />
                 Github
               </span>
               <a
                 href="https://github.com/Sahil-Dev404"
                 target="_blank"
-                rel="noreferrer"
-                className="group text-zinc-900 hover:text-[#FF4A3D] font-medium flex items-center gap-1 transition-colors"
+                rel="noopener noreferrer"
+                className="group text-zinc-900 hover:text-zinc-950 font-medium flex items-center gap-1 transition-colors"
               >
                 <span>{contactGithub}</span>
-                <ArrowUpRight className="size-3.5 text-zinc-400 group-hover:text-[#FF4A3D] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ArrowUpRight className="size-3.5 text-zinc-400 group-hover:text-zinc-950 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
             </div>
           </div>

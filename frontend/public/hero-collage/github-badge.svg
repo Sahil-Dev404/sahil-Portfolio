@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <!-- Deep Onyx Black Radial Gradient -->
+    <radialGradient id="gh-bg" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#2d333b"/>
+      <stop offset="45%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#090d12"/>
+    </radialGradient>
+
+    <!-- Glossy Dome Arc Highlight -->
+    <linearGradient id="gh-gloss-arc" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.38"/>
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Outer rim metallic shade -->
+    <linearGradient id="gh-rim-shade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Physical Badge Drop Bevel (Die-cut Sticker Rim) -->
+  <circle cx="128" cy="128" r="126" fill="#f8fafc"/>
+  <circle cx="128" cy="128" r="124" fill="url(#gh-rim-shade)"/>
+
+  <!-- Main Dark Enamel Core -->
+  <circle cx="128" cy="128" r="121" fill="url(#gh-bg)"/>
+
+  <!-- Top Curved Gloss Highlight Dome -->
+  <path d="M15 110 C25 50, 75 15, 128 15 C181 15, 231 50, 241 110 C190 85, 66 85, 15 110 Z" fill="url(#gh-gloss-arc)"/>
+
+  <!-- White Octocat Silhouette with subtle depth -->
+  <path fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd" filter="drop-shadow(0px 2px 3px rgba(0,0,0,0.35))" d="M128 48 C83.8 48 48 83.8 48 128 c0 35.4 22.9 65.4 54.8 76 c4 .7 5.5-1.7 5.5-3.8 c0-1.9-.1-8.2-.1-14.8 c-22.3 4.8-27-9.5-27-9.5 c-3.6-9.2-8.9-11.7-8.9-11.7 c-7.3-5 .6-4.9.6-4.9 c8 .6 12.3 8.3 12.3 8.3 c7.1 12.3 18.7 8.7 23.3 6.7 c.7-5.2 2.8-8.7 5.1-10.7 c-17.8-2-36.4-8.9-36.4-39.6 c0-8.7 3.1-15.9 8.2-21.5 c-.8-2-3.6-10.2.8-21.2 c0 0 6.7-2.1 22 8.2 c6.4-1.8 13.2-2.7 20-2.7 c6.8 0 13.6.9 20 2.7 c15.3-10.4 22-8.2 22-8.2 c4.4 11 1.6 19.2.8 21.2 c5.1 5.7 8.2 12.8 8.2 21.5 c0 30.8-18.7 37.5-36.6 39.5 c2.9 2.5 5.5 7.4 5.5 14.9 c0 10.7-.1 19.4-.1 22 c0 2.2 1.4 4.7 5.5 3.9 c31.8-10.6 54.7-40.6 54.7-76 C208 83.8 172.2 48 128 48 z" />
+
+  <!-- Inner crisp highlight ring -->
+  <circle cx="128" cy="128" r="120" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.2"/>
+</svg>

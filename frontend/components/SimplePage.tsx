@@ -3,6 +3,7 @@
 import type { CSSProperties } from "react";
 import { INTRO } from "./intro/intro.config";
 import ExperienceTimeline from "./experience/ExperienceTimeline";
+import AboutEditorial from "./about/AboutEditorial";
 import SkillsSection from "./skills/SkillsSection";
 import ProjectsSection from "./projects/ProjectsSection";
 import ContactSection from "./contact/ContactSection";
@@ -27,6 +28,11 @@ export default function SimplePage({ onReplay }: Props) {
         {/* Main Desk Collage Hero with Unified Navigation (Yan Liu style) */}
         <div className="rise" style={{ "--d": ".35s" } as CSSProperties}>
           <DeskCollageHero onReplay={onReplay} fullName={fullName} />
+        </div>
+
+        {/* Editorial About Statement (Yan Liu handwritten manifesto style) */}
+        <div className="rise" style={{ "--d": ".55s" } as CSSProperties}>
+          <AboutEditorial />
         </div>
 
         {/* Experience Timeline Section (with cursive scroll-animated line) */}

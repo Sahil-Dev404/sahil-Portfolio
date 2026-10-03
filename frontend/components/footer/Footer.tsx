@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import { GitHubIcon, LinkedInIcon } from "@/components/icons/SocialIcons";
 
 interface DoodleCard {
   id: string;
@@ -412,24 +413,26 @@ export default function Footer() {
               <span className="text-[0.68rem] font-mono tracking-widest text-zinc-400 uppercase select-none">
                 (CONTACT)
               </span>
-              <nav className="flex flex-col gap-1.5 text-xs font-semibold tracking-wide">
+              <nav className="flex flex-col gap-2 text-xs font-semibold tracking-wide">
                 <a
-                  href="https://linkedin.com/in/sahil-saini"
+                  href="https://www.linkedin.com/in/sahil-saini-a47b40324/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-zinc-600 hover:text-zinc-950 transition-colors duration-150 uppercase group"
+                  className="inline-flex items-center gap-1.5 text-zinc-600 hover:text-[#0A66C2] transition-colors duration-150 uppercase group"
                 >
+                  <LinkedInIcon className="size-3.5 fill-current" />
                   <span>LINKEDIN</span>
-                  <ArrowUpRight className="size-3 text-zinc-400 group-hover:text-zinc-950 transition-colors" />
+                  <ArrowUpRight className="size-3 text-zinc-400 group-hover:text-[#0A66C2] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
                 <a
                   href="https://github.com/Sahil-Dev404"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-zinc-600 hover:text-zinc-950 transition-colors duration-150 uppercase group"
+                  className="inline-flex items-center gap-1.5 text-zinc-600 hover:text-zinc-950 transition-colors duration-150 uppercase group"
                 >
+                  <GitHubIcon className="size-3.5 fill-current" />
                   <span>GITHUB</span>
-                  <ArrowUpRight className="size-3 text-zinc-400 group-hover:text-zinc-950 transition-colors" />
+                  <ArrowUpRight className="size-3 text-zinc-400 group-hover:text-zinc-950 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
                 <a
                   href="mailto:sahilsaini@example.com"

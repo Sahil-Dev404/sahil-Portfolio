@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight, Terminal as TerminalIcon, Sparkles, RotateCcw } from "lucide-react";
+import { GitHubIcon, LinkedInIcon } from "@/components/icons/SocialIcons";
 
 interface DeskCollageHeroProps {
   onReplay?: () => void;
@@ -29,13 +30,13 @@ export default function DeskCollageHero({
   };
 
   return (
-    <section className="relative w-full h-[calc(100vh-1rem)] min-h-[620px] max-h-[880px] text-zinc-950 select-none flex flex-col justify-between mb-8 sm:mb-12">
+    <section className="relative w-full h-[calc(100vh-1rem)] min-h-[620px] max-h-[880px] text-zinc-950 select-none flex flex-col justify-between mb-2 sm:mb-3">
       {/* Ambient subtle light glow */}
       <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(255,74,61,0.04)_0%,transparent_70%)] pointer-events-none" />
 
       {/* 1. LANYARD & ID BADGE - Connected directly to the top edge with pendulum sway (Desktop) */}
       <div
-        className="hidden lg:block absolute -top-4 sm:-top-6 lg:-top-8 left-[5%] xl:left-[6%] 2xl:left-[7%] z-35 pointer-events-auto select-none animate-lanyard-sway"
+        className="hidden lg:block absolute -top-4 sm:-top-6 lg:-top-8 left-[3.5%] lg:left-[4%] xl:left-[4.5%] 2xl:left-[5%] z-35 pointer-events-auto select-none animate-lanyard-sway"
         style={{ transformOrigin: "50% 0px" }}
       >
         {/* Top ceiling clip mounting anchor */}
@@ -123,6 +124,32 @@ export default function DeskCollageHero({
             {/* Minimalist ID tag */}
             <div className="mt-2 text-center text-[0.58rem] font-mono tracking-widest text-zinc-500 uppercase">
               SAHIL // AI RESEARCHER
+            </div>
+
+            {/* Quick Profile Social Buttons on Badge */}
+            <div className="mt-2.5 flex items-center justify-center gap-2">
+              <a
+                href="https://www.linkedin.com/in/sahil-saini-a47b40324/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Sahil Saini LinkedIn Profile"
+                title="Connect on LinkedIn"
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-zinc-800/90 hover:bg-[#0A66C2] text-zinc-300 hover:text-white border border-zinc-700 text-[0.62rem] font-mono tracking-wider transition-all duration-200 shadow-2xs hover:scale-105"
+              >
+                <LinkedInIcon className="size-3 fill-current" />
+                <span>LinkedIn</span>
+              </a>
+              <a
+                href="https://github.com/Sahil-Dev404"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Sahil Saini GitHub Profile"
+                title="Follow on GitHub"
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-zinc-800/90 hover:bg-zinc-700 text-zinc-300 hover:text-white border border-zinc-700 text-[0.62rem] font-mono tracking-wider transition-all duration-200 shadow-2xs hover:scale-105"
+              >
+                <GitHubIcon className="size-3 fill-current" />
+                <span>GitHub</span>
+              </a>
             </div>
           </div>
         </div>
@@ -240,7 +267,72 @@ export default function DeskCollageHero({
                   sizes="96px"
                 />
               </div>
+
+              {/* Mobile Profile Social Buttons */}
+              <div className="mt-2 flex items-center justify-center gap-2">
+                <a
+                  href="https://www.linkedin.com/in/sahil-saini-a47b40324/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Sahil Saini LinkedIn Profile"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-800/90 hover:bg-[#0A66C2] text-zinc-300 hover:text-white border border-zinc-700 text-xs font-mono transition-colors"
+                >
+                  <LinkedInIcon className="size-3.5 fill-current" />
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  href="https://github.com/Sahil-Dev404"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Sahil Saini GitHub Profile"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-800/90 hover:bg-zinc-700 text-zinc-300 hover:text-white border border-zinc-700 text-xs font-mono transition-colors"
+                >
+                  <GitHubIcon className="size-3.5 fill-current" />
+                  <span>GitHub</span>
+                </a>
+              </div>
             </div>
+          </div>
+
+          {/* Mobile Physical Desk Sticker Badges */}
+          <div className="md:hidden flex items-center justify-center gap-6 my-3 z-25">
+            <a
+              href="https://www.linkedin.com/in/sahil-saini-a47b40324/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Sahil Saini LinkedIn Profile"
+              className="group cursor-pointer select-none active:scale-95 transition-transform"
+            >
+              <div className="w-10 h-3 bg-[#D7C2A3]/85 shadow-2xs mx-auto -mb-1.5 rotate-[-4deg] rounded-2xs border border-stone-300/40" />
+              <div className="relative w-16 h-16 rounded-full drop-shadow-md ring-2 ring-white shadow-lg overflow-hidden rotate-[-6deg]">
+                <Image
+                  src="/hero-collage/linkedin-badge.svg"
+                  alt="LinkedIn Badge"
+                  fill
+                  className="object-cover"
+                  sizes="64px"
+                />
+              </div>
+            </a>
+
+            <a
+              href="https://github.com/Sahil-Dev404"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Sahil Saini GitHub Profile"
+              className="group cursor-pointer select-none active:scale-95 transition-transform"
+            >
+              <div className="w-10 h-3 bg-[#C9B18B]/85 shadow-2xs mx-auto -mb-1.5 rotate-[4deg] rounded-2xs border border-stone-300/40" />
+              <div className="relative w-16 h-16 rounded-full drop-shadow-md ring-2 ring-white shadow-lg overflow-hidden rotate-[6deg]">
+                <Image
+                  src="/hero-collage/github-badge.svg"
+                  alt="GitHub Badge"
+                  fill
+                  className="object-cover"
+                  sizes="64px"
+                />
+              </div>
+            </a>
           </div>
 
           {/* 2. CENTERPIECE SIGNATURE & EDITORIAL STATEMENT */}
@@ -290,8 +382,8 @@ export default function DeskCollageHero({
           </div>
 
           {/* 4. POTTED MONSTERA PLANT */}
-          <div className="hidden xl:block absolute left-[24%] xl:left-[25%] top-8 xl:top-10 z-15 transition-transform duration-300 hover:-rotate-3 hover:scale-110">
-            <div className="size-32 relative drop-shadow-[0_12px_20px_rgba(0,0,0,0.15)]">
+          <div className="hidden lg:block absolute left-[23%] xl:left-[25%] top-6 xl:top-8 z-15 transition-transform duration-300 hover:-rotate-3 hover:scale-110">
+            <div className="size-28 xl:size-32 relative drop-shadow-[0_12px_20px_rgba(0,0,0,0.15)]">
               <Image
                 src="/hero-collage/plant.jpg"
                 alt="Potted monstera desk plant"
@@ -300,6 +392,112 @@ export default function DeskCollageHero({
                 sizes="128px"
               />
             </div>
+          </div>
+
+          {/* 4B. PHYSICAL DESK COLLAGE: LINKEDIN VINYL STICKER BADGE */}
+          <div className="hidden md:block absolute left-[47%] lg:left-[49%] xl:left-[50%] top-5 lg:top-6 xl:top-7 z-25 select-none">
+            <a
+              href="https://www.linkedin.com/in/sahil-saini-a47b40324/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative group cursor-pointer block transition-all duration-300 hover:z-35 focus-visible:outline-none"
+              title="Connect with Sahil Saini on LinkedIn: in/sahil-saini-a47b40324"
+              aria-label="Sahil Saini LinkedIn Profile"
+            >
+              {/* Textured Japanese Craft Washi Tape */}
+              <div
+                className="w-14 h-4 bg-[#D9C4A5]/90 backdrop-blur-xs shadow-xs mx-auto -mb-2.5 z-30 relative border-y border-stone-400/40 rounded-2xs group-hover:rotate-0 transition-transform duration-300 pointer-events-none"
+                style={{
+                  transform: "rotate(-18deg)",
+                  backgroundImage: "repeating-linear-gradient(45deg, rgba(255,255,255,0.2) 0px, rgba(255,255,255,0.2) 2px, transparent 2px, transparent 4px)",
+                }}
+              />
+
+              {/* Sticker Container with Strong Asymmetrical Tilt (-12°) */}
+              <div className="relative rotate-[-12deg] group-hover:rotate-[-2deg] group-hover:scale-115 group-hover:-translate-y-1.5 transition-all duration-300 ease-out origin-center">
+                {/* Die-Cut Vinyl Badge with Realistic Multi-Layer Depth */}
+                <div className="relative w-20 h-20 sm:w-22 sm:h-22 xl:w-26 xl:h-26 rounded-full drop-shadow-[0_16px_24px_rgba(10,102,194,0.42)] ring-4 ring-white shadow-2xl overflow-hidden group-hover:drop-shadow-[0_24px_38px_rgba(10,102,194,0.65)] transition-all bg-white">
+                  <Image
+                    src="/hero-collage/linkedin-badge.svg"
+                    alt="LinkedIn Profile Circular Badge"
+                    fill
+                    className="object-cover"
+                    sizes="104px"
+                  />
+
+                  {/* Sweeping Holographic Gloss Sheen on Hover */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/40 to-transparent -translate-x-full -translate-y-full group-hover:translate-x-full group-hover:translate-y-full transition-transform duration-700 ease-in-out pointer-events-none" />
+
+                  {/* Tactile Dog-Ear Sticker Peel (bottom-left) */}
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-gradient-to-tr from-zinc-300 via-zinc-100 to-white shadow-xs rounded-tr-xs border-r border-t border-zinc-300/80 pointer-events-none" />
+                </div>
+
+                {/* Pop-up Pill Tag on Hover */}
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none whitespace-nowrap bg-zinc-950/95 text-white font-mono text-[0.55rem] font-bold px-2.5 py-0.5 rounded-full border border-zinc-700 shadow-2xl flex items-center gap-1.5 z-35 backdrop-blur-xs">
+                  <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>LINKEDIN</span>
+                  <span className="text-[#0A66C2]">↗</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          {/* Cursive handwritten desk annotation bridging the space between them */}
+          <div className="hidden lg:block absolute left-[56%] lg:left-[57%] xl:left-[58%] top-15 xl:top-17 z-20 pointer-events-none select-none rotate-[-4deg]">
+            <span
+              className="text-xs xl:text-sm text-zinc-500/90 font-normal tracking-wide whitespace-nowrap"
+              style={{ fontFamily: "var(--font-signature), 'Caveat', cursive" }}
+            >
+              find my code & connect ↗ ~
+            </span>
+          </div>
+
+          {/* 4C. PHYSICAL DESK COLLAGE: GITHUB VINYL STICKER BADGE */}
+          <div className="hidden md:block absolute left-[64%] lg:left-[66%] xl:left-[67%] top-7 lg:top-8 xl:top-10 z-25 select-none">
+            <a
+              href="https://github.com/Sahil-Dev404"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative group cursor-pointer block transition-all duration-300 hover:z-35 focus-visible:outline-none"
+              title="Follow Sahil Saini on GitHub: @Sahil-Dev404"
+              aria-label="Sahil Saini GitHub Profile"
+            >
+              {/* Terracotta Brick Washi Tape */}
+              <div
+                className="w-14 h-4 bg-[#C59B76]/90 backdrop-blur-xs shadow-xs mx-auto -mb-2.5 z-30 relative border-y border-stone-400/40 rounded-2xs group-hover:rotate-0 transition-transform duration-300 pointer-events-none"
+                style={{
+                  transform: "rotate(20deg)",
+                  backgroundImage: "repeating-linear-gradient(-45deg, rgba(255,255,255,0.2) 0px, rgba(255,255,255,0.2) 2px, transparent 2px, transparent 4px)",
+                }}
+              />
+
+              {/* Sticker Container with Counter Asymmetrical Tilt (+14°) */}
+              <div className="relative rotate-[14deg] group-hover:rotate-[2deg] group-hover:scale-115 group-hover:-translate-y-1.5 transition-all duration-300 ease-out origin-center">
+                {/* Die-Cut Vinyl Badge with Realistic Multi-Layer Depth */}
+                <div className="relative w-20 h-20 sm:w-22 sm:h-22 xl:w-26 xl:h-26 rounded-full drop-shadow-[0_16px_24px_rgba(0,0,0,0.45)] ring-4 ring-white shadow-2xl overflow-hidden group-hover:drop-shadow-[0_24px_38px_rgba(0,0,0,0.7)] transition-all bg-zinc-950">
+                  <Image
+                    src="/hero-collage/github-badge.svg"
+                    alt="GitHub Profile Circular Badge"
+                    fill
+                    className="object-cover"
+                    sizes="104px"
+                  />
+
+                  {/* Sweeping Holographic Gloss Sheen on Hover */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/35 to-transparent -translate-x-full -translate-y-full group-hover:translate-x-full group-hover:translate-y-full transition-transform duration-700 ease-in-out pointer-events-none" />
+
+                  {/* Tactile Dog-Ear Sticker Peel (bottom-right) */}
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-gradient-to-tl from-zinc-300 via-zinc-100 to-white shadow-xs rounded-tl-xs border-l border-t border-zinc-300/80 pointer-events-none" />
+                </div>
+
+                {/* Pop-up Pill Tag on Hover */}
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none whitespace-nowrap bg-zinc-950/95 text-white font-mono text-[0.55rem] font-bold px-2.5 py-0.5 rounded-full border border-zinc-700 shadow-2xl flex items-center gap-1.5 z-35 backdrop-blur-xs">
+                  <span className="text-amber-400">★</span>
+                  <span>GITHUB</span>
+                  <span className="text-zinc-400">↗</span>
+                </div>
+              </div>
+            </a>
           </div>
 
           {/* 5. TECH BOARDING PASS / TICKET (Top Right) - Rich Interactive Animations */}
@@ -418,23 +616,23 @@ export default function DeskCollageHero({
             </div>
           </div>
 
-          {/* 6C. NIKE AIR JORDAN 1 SNEAKER POLAROID (Left Desk Edge Empty Space) */}
-          <div className="hidden xl:block absolute left-[1.5%] 2xl:left-[2.5%] top-[22%] z-15 transition-transform duration-300 hover:rotate-1 hover:scale-105 cursor-pointer">
+          {/* 6C. NIKE AIR FORCE 1 SNEAKER POLAROID (In open grid space to the left of ID card) */}
+          <div className="hidden lg:block absolute left-0.5 sm:left-1 lg:left-1.5 top-2 lg:top-3 z-30 transition-transform duration-300 hover:rotate-1 hover:scale-105 cursor-pointer">
             {/* Washi Masking Tape */}
-            <div className="w-16 h-4 bg-[#E0D1BA]/85 backdrop-blur-xs shadow-2xs mx-auto -mb-2 rotate-[5deg] z-20 relative border border-stone-300/40 rounded-2xs" />
+            <div className="w-14 h-3.5 bg-[#E0D1BA]/85 backdrop-blur-xs shadow-2xs mx-auto -mb-2 rotate-[4deg] z-20 relative border border-stone-300/40 rounded-2xs" />
             {/* Polaroid Backing */}
-            <div className="w-32 bg-white rounded-xs p-1.5 pb-2 shadow-[0_8px_18px_rgba(0,0,0,0.1)] border border-stone-200/90 rotate-[-4deg] flex flex-col items-center">
-              <div className="relative w-28 h-24 rounded-2xs overflow-hidden bg-zinc-100">
+            <div className="w-28 sm:w-30 bg-white rounded-xs p-1.5 pb-2 shadow-[0_10px_22px_rgba(0,0,0,0.12)] border border-stone-200/90 rotate-[-3deg] flex flex-col items-center">
+              <div className="relative w-24 h-20 sm:w-26 sm:h-22 rounded-2xs overflow-hidden bg-zinc-50 flex items-center justify-center">
                 <Image
-                  src="/hero-collage/sneaker.jpg"
-                  alt="Nike Air Jordan 1 Chicago sneaker"
+                  src="/hero-collage/nike-af1.png"
+                  alt="Nike Air Force 1 sneaker"
                   fill
-                  className="object-cover"
+                  className="object-contain p-1"
                   sizes="112px"
                 />
               </div>
-              <span className="text-[0.52rem] font-mono text-stone-500 block text-center mt-1">
-                AJ1 Chicago // grail
+              <span className="text-[0.52rem] font-mono text-stone-500 block text-center mt-1 font-medium">
+                AF1 ’07 // fresh
               </span>
             </div>
           </div>
