@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { ArrowUpRight, Briefcase, Calendar, MapPin } from "lucide-react";
+import InteractiveHotspot from "@/components/interactive/InteractiveHotspot";
 
 export interface ExperienceItem {
   id: string;
@@ -98,18 +99,31 @@ export function ExperienceTimeline({
       className={`relative w-full pt-2 pb-8 my-2 scroll-mt-12 ${className}`}
       aria-label="Experience timeline"
     >
-      {/* Section Header */}
-      <div className="flex flex-col items-start gap-2 mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 text-zinc-700 text-xs font-mono tracking-widest uppercase border border-zinc-200">
-          <Briefcase className="size-3 text-[#FF4A3D]" />
-          <span>Career Journey</span>
+      {/* Section Header with 3D Hotspot */}
+      <div className="flex items-start justify-between gap-4 mb-8">
+        <div className="flex flex-col items-start gap-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 text-zinc-700 text-xs font-mono tracking-widest uppercase border border-zinc-200">
+            <Briefcase className="size-3 text-[#FF4A3D]" />
+            <span>Career Journey</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 font-[var(--display)]">
+            Experience & Milestones
+          </h2>
+          <p className="text-xs sm:text-sm text-zinc-500 max-w-xl">
+            Scroll to trace the timeline path through research labs and engineering roles.
+          </p>
         </div>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 font-[var(--display)]">
-          Experience & Milestones
-        </h2>
-        <p className="text-xs sm:text-sm text-zinc-500 max-w-xl">
-          Scroll to trace the timeline path through research labs and engineering roles.
-        </p>
+
+        {/* 3D Wireframe Hotspot */}
+        <div className="hidden sm:block shrink-0 mt-1 pointer-events-auto">
+          <InteractiveHotspot
+            id="exp-icosa"
+            shape="icosahedron"
+            label="3D.04 // ICOSA"
+            activeIcon="square"
+            popupSide="left"
+          />
+        </div>
       </div>
 
       {/* Timeline Grid Container */}

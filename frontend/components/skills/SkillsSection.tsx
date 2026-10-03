@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import InteractiveHotspot from "@/components/interactive/InteractiveHotspot";
 
 export type SkillCategory = "dl" | "ml" | "lang" | "data" | "nlp" | "tools" | "web";
 
@@ -595,54 +596,67 @@ export function SkillsSection() {
   ];
 
   return (
-    <section
-      id="skills"
-      className="relative w-full rounded-[2rem] bg-gradient-to-b from-zinc-50/90 via-zinc-50/50 to-transparent border border-zinc-200/70 p-6 sm:p-8 my-8 shadow-xs overflow-hidden transition-colors scroll-mt-12"
-      aria-label="Technical skills cloud"
-    >
-      {/* Subtle organic light accent blur that connects the experience to projects flow */}
-      <div
-        className="pointer-events-none absolute -top-20 left-1/3 size-64 rounded-full bg-[radial-gradient(circle,rgba(255,74,61,0.06)_0%,transparent_70%)] blur-2xl"
-        aria-hidden
-      />
-      <div className="absolute inset-0 pointer-events-none opacity-40 graph-grid" aria-hidden />
-
-      {/* Header bar: Compact title + Category switcher */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-zinc-200/80">
-        <div>
-          <div className="flex items-center gap-2 text-[0.7rem] font-mono tracking-widest text-[#FF4A3D] uppercase">
-            <span className="size-1.5 rounded-full bg-[#FF4A3D]" />
-            <span>Tech Stack // 2024–2028</span>
-          </div>
-          <h2 className="mt-1 text-xl sm:text-2xl font-bold tracking-tight text-zinc-950 font-[var(--display)]">
-            Core Toolkit & Technologies
-          </h2>
-          <p className="mt-0.5 text-xs text-zinc-500">
-            Interactive competency cloud spanning neural architectures, statistical modeling, and ML pipelines.
-          </p>
-        </div>
-
-        {/* Minimal Category Filter Pills on Light Surface */}
-        <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-2xl bg-white border border-zinc-200 shadow-2xs self-start sm:self-auto">
-          {categories.map((cat) => {
-            const isActive = activeCategory === cat.id;
-            return (
-              <button
-                key={cat.id}
-                type="button"
-                onClick={() => setActiveCategory(cat.id)}
-                className={`px-3 py-1 rounded-xl text-[0.7rem] font-medium tracking-wide transition-all duration-200 cursor-pointer ${
-                  isActive
-                    ? "bg-zinc-950 text-white font-semibold shadow-xs"
-                    : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100/70"
-                }`}
-              >
-                {cat.label}
-              </button>
-            );
-          })}
-        </div>
+    <div className="relative w-full my-8">
+      {/* 3D Wireframe Hotspot: Positioned on background grid at marked cell */}
+      <div className="hidden md:block absolute -top-[88px] right-[68px] sm:right-[76px] md:right-[84px] z-30 pointer-events-auto">
+        <InteractiveHotspot
+          id="skills-knot"
+          shape="knot"
+          label="3D.05 // KNOT"
+          activeIcon="circle-square"
+          popupSide="left"
+        />
       </div>
+
+      <section
+        id="skills"
+        className="relative w-full rounded-[2rem] bg-gradient-to-b from-zinc-50/90 via-zinc-50/50 to-transparent border border-zinc-200/70 p-6 sm:p-8 shadow-xs overflow-hidden transition-colors scroll-mt-12"
+        aria-label="Technical skills cloud"
+      >
+        {/* Subtle organic light accent blur that connects the experience to projects flow */}
+        <div
+          className="pointer-events-none absolute -top-20 left-1/3 size-64 rounded-full bg-[radial-gradient(circle,rgba(255,74,61,0.06)_0%,transparent_70%)] blur-2xl"
+          aria-hidden
+        />
+
+        {/* Header bar: Compact title + Category switcher */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-zinc-200/80">
+          <div>
+            <div className="flex items-center gap-2 text-[0.7rem] font-mono tracking-widest text-[#FF4A3D] uppercase">
+              <span className="size-1.5 rounded-full bg-[#FF4A3D]" />
+              <span>Tech Stack // 2024–2028</span>
+            </div>
+            <h2 className="mt-1 text-xl sm:text-2xl font-bold tracking-tight text-zinc-950 font-[var(--display)]">
+              Core Toolkit & Technologies
+            </h2>
+            <p className="mt-0.5 text-xs text-zinc-500">
+              Interactive competency cloud spanning neural architectures, statistical modeling, and ML pipelines.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-3 self-start sm:self-auto">
+            {/* Minimal Category Filter Pills on Light Surface */}
+            <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-2xl bg-white border border-zinc-200 shadow-2xs">
+              {categories.map((cat) => {
+                const isActive = activeCategory === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    onClick={() => setActiveCategory(cat.id)}
+                    className={`px-3 py-1 rounded-xl text-[0.7rem] font-medium tracking-wide transition-all duration-200 cursor-pointer ${
+                      isActive
+                        ? "bg-zinc-950 text-white font-semibold shadow-xs"
+                        : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100/70"
+                    }`}
+                  >
+                    {cat.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
 
       {/* Compact Interactive Pill Cloud on Light Palette */}
       <div className="pt-6 pb-2 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 max-w-6xl 2xl:max-w-7xl mx-auto">
@@ -696,7 +710,8 @@ export function SkillsSection() {
         </span>
         <span className="text-zinc-500">INDEXED {SKILL_PILLS.length} FRAMEWORKS</span>
       </div>
-    </section>
+      </section>
+    </div>
   );
 }
 

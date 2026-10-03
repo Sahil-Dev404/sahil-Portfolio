@@ -8,6 +8,7 @@ import {
 } from "./OrbitCardStack";
 import { ArrowUpRight, Sparkles, Terminal, Code2, ExternalLink, X, CheckCircle2, GitBranch } from "lucide-react";
 import { GitHubIcon } from "@/components/icons/SocialIcons";
+import InteractiveHotspot from "@/components/interactive/InteractiveHotspot";
 
 export function ProjectsSection() {
   const currentItems = AI_RESEARCH_PROJECTS;
@@ -42,19 +43,15 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative w-full rounded-[2.5rem] bg-gradient-to-b from-zinc-50/90 via-white to-zinc-50/60 text-zinc-950 p-6 sm:p-10 md:p-14 overflow-hidden border border-zinc-200/80 shadow-xs my-8 scroll-mt-12"
+      className="relative w-full rounded-[2rem] sm:rounded-[2.5rem] bg-gradient-to-b from-zinc-50/90 via-zinc-50/50 to-transparent text-zinc-950 p-6 sm:p-10 md:p-14 overflow-visible border border-zinc-200/70 shadow-xs my-8 scroll-mt-12 transition-colors"
       aria-label="Selected Projects and Research"
     >
       {/* Background ambient lighting matching editorial light flow */}
-      <div
-        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 size-[640px] rounded-full bg-[radial-gradient(circle,rgba(255,74,61,0.06)_0%,rgba(120,220,202,0.03)_45%,transparent_70%)] blur-3xl"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-zinc-50/40 to-transparent"
-        aria-hidden
-      />
-      <div className="absolute inset-0 pointer-events-none opacity-40 graph-grid" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden" aria-hidden>
+        <div
+          className="absolute -top-40 left-1/2 -translate-x-1/2 size-[640px] rounded-full bg-[radial-gradient(circle,rgba(255,74,61,0.06)_0%,rgba(120,220,202,0.03)_45%,transparent_70%)] blur-3xl"
+        />
+      </div>
 
       {/* Section Header */}
       <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-zinc-200/80">
@@ -71,10 +68,23 @@ export function ProjectsSection() {
           </p>
         </div>
 
-        {/* Category Badge */}
-        <div className="flex items-center self-start md:self-auto px-4 py-2 rounded-full bg-zinc-950 text-white text-xs font-semibold tracking-wider shadow-xs gap-2 select-none">
-          <Sparkles className="size-3.5 text-[#FF4A3D]" />
-          <span>AI / ML Models</span>
+        {/* Category Badge & 3D Hotspot */}
+        <div className="relative flex items-center self-start md:self-auto">
+          {/* 3D Wireframe Hotspot: Positioned 3 grid cells up and 1 cell left as marked */}
+          <div className="hidden md:block absolute -top-[132px] right-0 shrink-0 pointer-events-auto z-40">
+            <InteractiveHotspot
+              id="projects-torus"
+              shape="torus"
+              label="3D.06 // TORUS"
+              activeIcon="square"
+              popupSide="left"
+            />
+          </div>
+
+          <div className="flex items-center px-4 py-2 rounded-full bg-zinc-950 text-white text-xs font-semibold tracking-wider shadow-xs gap-2 select-none">
+            <Sparkles className="size-3.5 text-[#FF4A3D]" />
+            <span>Projects</span>
+          </div>
         </div>
       </div>
 
@@ -108,17 +118,17 @@ export function ProjectsSection() {
 
       {/* Active Card Quick-Summary Pill / Controller */}
       <div className="relative z-10 mx-auto max-w-2xl mt-2 p-4 sm:p-5 rounded-2xl bg-white/90 border border-zinc-200/90 shadow-md backdrop-blur-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex items-start sm:items-center gap-3.5">
+        <div className="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
           <div
             className="size-3.5 rounded-full shrink-0 mt-1 sm:mt-0"
             style={{ backgroundColor: activeItem.accent ?? "#f8d66d" }}
           />
-          <div>
+          <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <h4 className="text-base font-semibold text-zinc-950 tracking-tight">
+              <h4 className="text-base font-semibold text-zinc-950 tracking-tight truncate">
                 {activeItem.name}
               </h4>
-              <span className="text-xs px-2 py-0.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-700 font-mono">
+              <span className="text-xs px-2 py-0.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-700 font-mono shrink-0">
                 {activeItem.stat}
               </span>
             </div>
@@ -136,10 +146,10 @@ export function ProjectsSection() {
         <button
           type="button"
           onClick={() => handleCardSelect(activeItem)}
-          className="self-end sm:self-auto flex items-center gap-1.5 px-4 py-2 rounded-full bg-zinc-950 hover:bg-zinc-800 text-white text-xs font-mono font-medium tracking-wide transition-all duration-200 cursor-pointer shadow-sm hover:scale-105"
+          className="self-end sm:self-auto shrink-0 whitespace-nowrap flex items-center gap-2 px-4.5 py-2.5 rounded-full bg-zinc-950 hover:bg-zinc-800 text-white text-xs font-mono font-medium tracking-wide transition-all duration-200 cursor-pointer shadow-sm hover:scale-105"
         >
           <span>Open Full Spec</span>
-          <ArrowUpRight className="size-3.5" />
+          <ArrowUpRight className="size-4.5 stroke-[2.2] shrink-0" />
         </button>
       </div>
 

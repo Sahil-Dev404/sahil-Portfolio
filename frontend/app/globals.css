@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 :root {
+  --grid-size: 44px;
+  --grid-line: rgba(24, 24, 27, 0.065);
   --ground: #FFFFFF;      /* name page background */
   --ink: #0B0B0D;
   --mute: #5C5F6A;
@@ -20,14 +22,19 @@
   color-scheme: light;
 }
 
+html {
+  overflow-x: clip;
+}
 html.intro { overflow: hidden; }
 body {
+  overflow-x: clip;
+  max-width: 100vw;
   background-color: var(--ground);
   background-image:
-    linear-gradient(to right, rgba(24, 24, 27, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(24, 24, 27, 0.05) 1px, transparent 1px);
-  background-size: 36px 36px;
-  background-attachment: fixed;
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  background-position: 0 0;
   color: var(--ink);
   font-family: var(--body);
   margin: 0;
@@ -96,9 +103,10 @@ body {
 /* Graph paper grid texture utility */
 .graph-grid {
   background-image:
-    linear-gradient(to right, rgba(24, 24, 27, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(24, 24, 27, 0.06) 1px, transparent 1px);
-  background-size: 36px 36px;
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  background-position: 0 0;
 }
 
 /* Realistic pendulum sway for lanyard card */

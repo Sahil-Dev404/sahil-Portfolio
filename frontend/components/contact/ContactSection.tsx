@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, Check, Copy } from "lucide-react";
+import { AlertCircle, ArrowUpRight, Check, Copy } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons/SocialIcons";
+import InteractiveHotspot from "@/components/interactive/InteractiveHotspot";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -15,7 +16,7 @@ export function ContactSection() {
   const [errorMessage, setErrorMessage] = useState("");
 
   // Boiler email - easily editable by user
-  const contactEmail = "sahilsaini@example.com";
+  const contactEmail = "2005sahilsaini@gmail.com";
   const contactPhone = "+1 720-813-5491";
   const contactLinkedin = "in/sahil-saini-a47b40324";
   const contactGithub = "@Sahil-Dev404";
@@ -40,6 +41,39 @@ export function ContactSection() {
     setErrorMessage("");
 
     try {
+      const rawId = process.env.NEXT_PUBLIC_FORMSPREE_ID || "mdekqjla";
+      const endpoint = rawId.startsWith("http") ? rawId : `https://formspree.io/f/${rawId}`;
+
+      // Submit directly to Formspree
+      if (rawId) {
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+          }),
+        });
+
+        if (res.ok) {
+          setStatus("success");
+          setFormData({ name: "", email: "", message: "" });
+        } else {
+          const data = await res.json().catch(() => null);
+          const errorText =
+            data?.errors?.map((err: { message: string }) => err.message).join(", ") ||
+            "Unable to send message via Formspree.";
+          setStatus("error");
+          setErrorMessage(errorText);
+        }
+        return;
+      }
+
+      // Fallback: local backend route
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
       const res = await fetch(`${apiUrl}/api/contact`, {
         method: "POST",
@@ -51,21 +85,19 @@ export function ContactSection() {
         setStatus("success");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        // Even if backend is not reached, simulate success or show message
-        setStatus("success");
-        setFormData({ name: "", email: "", message: "" });
+        setStatus("error");
+        setErrorMessage("Something went wrong. Please email directly at " + contactEmail);
       }
     } catch {
-      // Graceful fallback for offline / mock
-      setStatus("success");
-      setFormData({ name: "", email: "", message: "" });
+      setStatus("error");
+      setErrorMessage("Network error. Please email directly at " + contactEmail);
     }
   };
 
   return (
     <section
       id="contact"
-      className="relative w-full rounded-[2.5rem] bg-gradient-to-b from-zinc-50/90 via-white to-zinc-50/60 text-zinc-950 p-6 sm:p-10 md:p-16 my-10 overflow-hidden border border-zinc-200/80 shadow-xs scroll-mt-12"
+      className="relative w-full rounded-[2rem] sm:rounded-[2.5rem] bg-gradient-to-b from-zinc-50/90 via-zinc-50/50 to-transparent text-zinc-950 p-6 sm:p-10 md:p-16 my-10 overflow-hidden border border-zinc-200/70 shadow-xs scroll-mt-12 transition-colors"
       aria-label="Contact Section"
     >
       {/* Background ambient lighting */}
@@ -73,19 +105,31 @@ export function ContactSection() {
         className="pointer-events-none absolute -top-32 right-1/4 size-96 rounded-full bg-[radial-gradient(circle,rgba(255,74,61,0.06)_0%,rgba(99,102,241,0.03)_45%,transparent_70%)] blur-3xl"
         aria-hidden
       />
-      <div className="absolute inset-0 pointer-events-none opacity-40 graph-grid" aria-hidden />
 
       {/* Header Info */}
-      <div className="relative z-10">
-        <div className="text-xs font-mono tracking-widest text-[#FF4A3D] uppercase mb-2">
-          § 04
+      <div className="relative z-10 flex items-start justify-between gap-4">
+        <div>
+          <div className="text-xs font-mono tracking-widest text-[#FF4A3D] uppercase mb-2">
+            § 04
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-zinc-950 font-[var(--display)] uppercase">
+            Contact
+          </h2>
+          <p className="mt-3 text-sm sm:text-base text-zinc-600 max-w-xl font-normal leading-relaxed">
+            Recruiting, collaborating, or just talking systems — my inbox is open.
+          </p>
         </div>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-zinc-950 font-[var(--display)] uppercase">
-          Contact
-        </h2>
-        <p className="mt-3 text-sm sm:text-base text-zinc-600 max-w-xl font-normal leading-relaxed">
-          Recruiting, collaborating, or just talking systems — my inbox is open.
-        </p>
+
+        {/* 3D Wireframe Hotspot */}
+        <div className="hidden sm:block shrink-0 mt-1 pointer-events-auto">
+          <InteractiveHotspot
+            id="contact-sphere"
+            shape="sphere"
+            label="3D.07 // SPHERE"
+            activeIcon="square"
+            popupSide="left"
+          />
+        </div>
       </div>
 
       {/* Big Outlined Display Statement (Single line to save vertical space) */}
@@ -276,6 +320,13 @@ export function ContactSection() {
                 <div className="flex items-center gap-2 text-xs font-mono text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-lg shadow-2xs">
                   <Check className="size-3.5 text-emerald-600" />
                   <span>Message transmitted successfully!</span>
+                </div>
+              )}
+
+              {status === "error" && (
+                <div className="flex items-center gap-2 text-xs font-mono text-rose-800 bg-rose-50 border border-rose-200 px-3 py-1.5 rounded-lg shadow-2xs max-w-sm">
+                  <AlertCircle className="size-3.5 text-rose-600 shrink-0" />
+                  <span>{errorMessage || "Unable to send message."}</span>
                 </div>
               )}
             </div>

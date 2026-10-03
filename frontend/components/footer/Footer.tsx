@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Heart } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons/SocialIcons";
 
 interface DoodleCard {
@@ -226,6 +226,7 @@ export default function Footer() {
     const updateTime = () => {
       const now = new Date();
       const timeStr = now.toLocaleTimeString("en-US", {
+        timeZone: "Asia/Kolkata",
         hour: "numeric",
         minute: "2-digit",
         hour12: true,
@@ -334,12 +335,11 @@ export default function Footer() {
     <footer
       ref={footerRef}
       onMouseMove={handleMouseMove}
-      className="relative w-full mt-14 sm:mt-16 mb-4 rounded-3xl sm:rounded-[2.5rem] bg-gradient-to-b from-zinc-50/95 via-white to-zinc-50/80 text-zinc-950 overflow-hidden border border-zinc-200/80 transition-all select-none shadow-xs"
+      className="relative w-full mt-14 sm:mt-16 mb-4 rounded-3xl sm:rounded-[2.5rem] bg-gradient-to-b from-zinc-50/90 via-zinc-50/50 to-transparent border border-zinc-200/70 text-zinc-950 overflow-hidden transition-all select-none shadow-xs"
     >
       {/* Subtle ambient lighting matching site aesthetic */}
       <div className="absolute top-0 right-1/4 w-[380px] h-[380px] bg-[radial-gradient(circle,rgba(255,74,61,0.05)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-[300px] h-[300px] bg-[radial-gradient(circle,rgba(59,130,246,0.03)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute inset-0 pointer-events-none opacity-40 graph-grid" aria-hidden />
 
       {/* Main Content Container */}
       <div className="relative z-10 px-5 sm:px-8 lg:px-10 pt-7 sm:pt-9 pb-4 flex flex-col justify-between">
@@ -353,7 +353,7 @@ export default function Footer() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-600" />
               </span>
-              <span>PHILADELPHIA {currentTime || "10:26 AM"}</span>
+              <span>INDIA {currentTime || "1:20 AM"}</span>
             </div>
 
             {/* Serif Headline matching reference */}
@@ -435,7 +435,7 @@ export default function Footer() {
                   <ArrowUpRight className="size-3 text-zinc-400 group-hover:text-zinc-950 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
                 <a
-                  href="mailto:sahilsaini@example.com"
+                  href="mailto:2005sahilsaini@gmail.com"
                   className="inline-flex items-center gap-1 text-zinc-600 hover:text-zinc-950 transition-colors duration-150 uppercase group"
                 >
                   <span>EMAIL</span>
@@ -603,7 +603,10 @@ export default function Footer() {
             <span>&copy; {new Date().getFullYear()} Sahil Saini. All rights reserved.</span>
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-zinc-500 hidden sm:inline">Built with Next.js & PyTorch</span>
+            <span className="text-zinc-500 hidden sm:inline-flex items-center gap-1.5">
+              <span>Built with love</span>
+              <Heart className="size-3.5 fill-[#FF4A3D] text-[#FF4A3D] inline-block" />
+            </span>
             <button
               type="button"
               onClick={scrollToTop}

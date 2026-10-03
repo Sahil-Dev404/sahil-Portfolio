@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight, Terminal as TerminalIcon, Sparkles, RotateCcw } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons/SocialIcons";
+import InteractiveRocket from "./InteractiveRocket";
 
 interface DeskCollageHeroProps {
   onReplay?: () => void;
@@ -15,9 +16,6 @@ export default function DeskCollageHero({
   fullName = "Sahil Saini",
 }: DeskCollageHeroProps) {
   const [isPlayingVinyl, setIsPlayingVinyl] = useState(false);
-  const [pixelMode, setPixelMode] = useState(0);
-
-  const PIXEL_MODES = ["🚀", "⚡", "🧠", "☕", "★"];
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -99,7 +97,6 @@ export default function DeskCollageHero({
             {/* Circular Cutout Photo with cartoon switch on image hover only */}
             <div
               className="group/avatar relative size-32 rounded-full border-2 border-zinc-700/80 ring-4 ring-black/50 shadow-2xl overflow-hidden bg-zinc-900 my-1 cursor-pointer select-none"
-              title="Hover to see cartoon version"
             >
               {/* Real photo (base layer) */}
               <Image
@@ -133,7 +130,6 @@ export default function DeskCollageHero({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Sahil Saini LinkedIn Profile"
-                title="Connect on LinkedIn"
                 className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-zinc-800/90 hover:bg-[#0A66C2] text-zinc-300 hover:text-white border border-zinc-700 text-[0.62rem] font-mono tracking-wider transition-all duration-200 shadow-2xs hover:scale-105"
               >
                 <LinkedInIcon className="size-3 fill-current" />
@@ -144,7 +140,6 @@ export default function DeskCollageHero({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Sahil Saini GitHub Profile"
-                title="Follow on GitHub"
                 className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-zinc-800/90 hover:bg-zinc-700 text-zinc-300 hover:text-white border border-zinc-700 text-[0.62rem] font-mono tracking-wider transition-all duration-200 shadow-2xs hover:scale-105"
               >
                 <GitHubIcon className="size-3 fill-current" />
@@ -164,7 +159,7 @@ export default function DeskCollageHero({
             type="button"
             onClick={onReplay}
             className="group flex items-center gap-2 cursor-pointer select-none text-left focus-visible:outline-none"
-            title="Click to replay intro animation"
+            aria-label="Replay intro animation"
           >
             <span className="size-2 rounded-full bg-[#FF4A3D] animate-pulse" />
             <span className="font-bold text-zinc-950 group-hover:text-[#FF4A3D] transition-colors">
@@ -248,7 +243,6 @@ export default function DeskCollageHero({
               </p>
               <div
                 className="group/avatar relative size-24 rounded-full border-2 border-zinc-700 ring-4 ring-black/40 overflow-hidden mx-auto my-3 shadow-lg bg-zinc-900 cursor-pointer select-none"
-                title="Tap or hover to see cartoon version"
               >
                 {/* Real photo */}
                 <Image
@@ -372,7 +366,7 @@ export default function DeskCollageHero({
               <div className="relative size-36 rounded-xs overflow-hidden">
                 <Image
                   src="/hero-collage/iced-coffee.jpg"
-                  alt="Iced coffee & yellow pencil"
+                  alt="Front view iced coffee glass & yellow pencil"
                   fill
                   className="object-cover"
                   sizes="144px"
@@ -381,15 +375,15 @@ export default function DeskCollageHero({
             </div>
           </div>
 
-          {/* 4. POTTED MONSTERA PLANT */}
-          <div className="hidden lg:block absolute left-[23%] xl:left-[25%] top-6 xl:top-8 z-15 transition-transform duration-300 hover:-rotate-3 hover:scale-110">
-            <div className="size-28 xl:size-32 relative drop-shadow-[0_12px_20px_rgba(0,0,0,0.15)]">
+          {/* 4. POTTED MONSTERA PLANT (Front eye-level view matching reference) */}
+          <div className="hidden lg:block absolute left-[23%] xl:left-[25%] top-4 xl:top-6 z-15 transition-transform duration-300 hover:-rotate-3 hover:scale-110 cursor-pointer select-none">
+            <div className="w-32 h-36 xl:w-36 xl:h-40 relative drop-shadow-[0_14px_24px_rgba(0,0,0,0.18)]">
               <Image
-                src="/hero-collage/plant.jpg"
-                alt="Potted monstera desk plant"
+                src="/hero-collage/plant.png"
+                alt="Potted monstera front view desk plant"
                 fill
                 className="object-contain"
-                sizes="128px"
+                sizes="(max-width: 1280px) 144px, 160px"
               />
             </div>
           </div>
@@ -401,20 +395,18 @@ export default function DeskCollageHero({
               target="_blank"
               rel="noopener noreferrer"
               className="relative group cursor-pointer block transition-all duration-300 hover:z-35 focus-visible:outline-none"
-              title="Connect with Sahil Saini on LinkedIn: in/sahil-saini-a47b40324"
               aria-label="Sahil Saini LinkedIn Profile"
             >
-              {/* Textured Japanese Craft Washi Tape */}
-              <div
-                className="w-14 h-4 bg-[#D9C4A5]/90 backdrop-blur-xs shadow-xs mx-auto -mb-2.5 z-30 relative border-y border-stone-400/40 rounded-2xs group-hover:rotate-0 transition-transform duration-300 pointer-events-none"
-                style={{
-                  transform: "rotate(-18deg)",
-                  backgroundImage: "repeating-linear-gradient(45deg, rgba(255,255,255,0.2) 0px, rgba(255,255,255,0.2) 2px, transparent 2px, transparent 4px)",
-                }}
-              />
-
               {/* Sticker Container with Strong Asymmetrical Tilt (-12°) */}
               <div className="relative rotate-[-12deg] group-hover:rotate-[-2deg] group-hover:scale-115 group-hover:-translate-y-1.5 transition-all duration-300 ease-out origin-center">
+                {/* Textured Japanese Craft Washi Tape */}
+                <div
+                  className="w-14 h-4 bg-[#D9C4A5]/90 backdrop-blur-xs shadow-xs mx-auto -mb-2.5 z-30 relative border-y border-stone-400/40 rounded-2xs pointer-events-none rotate-[-6deg]"
+                  style={{
+                    backgroundImage: "repeating-linear-gradient(45deg, rgba(255,255,255,0.2) 0px, rgba(255,255,255,0.2) 2px, transparent 2px, transparent 4px)",
+                  }}
+                />
+
                 {/* Die-Cut Vinyl Badge with Realistic Multi-Layer Depth */}
                 <div className="relative w-20 h-20 sm:w-22 sm:h-22 xl:w-26 xl:h-26 rounded-full drop-shadow-[0_16px_24px_rgba(10,102,194,0.42)] ring-4 ring-white shadow-2xl overflow-hidden group-hover:drop-shadow-[0_24px_38px_rgba(10,102,194,0.65)] transition-all bg-white">
                   <Image
@@ -459,20 +451,18 @@ export default function DeskCollageHero({
               target="_blank"
               rel="noopener noreferrer"
               className="relative group cursor-pointer block transition-all duration-300 hover:z-35 focus-visible:outline-none"
-              title="Follow Sahil Saini on GitHub: @Sahil-Dev404"
               aria-label="Sahil Saini GitHub Profile"
             >
-              {/* Terracotta Brick Washi Tape */}
-              <div
-                className="w-14 h-4 bg-[#C59B76]/90 backdrop-blur-xs shadow-xs mx-auto -mb-2.5 z-30 relative border-y border-stone-400/40 rounded-2xs group-hover:rotate-0 transition-transform duration-300 pointer-events-none"
-                style={{
-                  transform: "rotate(20deg)",
-                  backgroundImage: "repeating-linear-gradient(-45deg, rgba(255,255,255,0.2) 0px, rgba(255,255,255,0.2) 2px, transparent 2px, transparent 4px)",
-                }}
-              />
-
               {/* Sticker Container with Counter Asymmetrical Tilt (+14°) */}
               <div className="relative rotate-[14deg] group-hover:rotate-[2deg] group-hover:scale-115 group-hover:-translate-y-1.5 transition-all duration-300 ease-out origin-center">
+                {/* Terracotta Brick Washi Tape */}
+                <div
+                  className="w-14 h-4 bg-[#C59B76]/90 backdrop-blur-xs shadow-xs mx-auto -mb-2.5 z-30 relative border-y border-stone-400/40 rounded-2xs pointer-events-none rotate-[6deg]"
+                  style={{
+                    backgroundImage: "repeating-linear-gradient(-45deg, rgba(255,255,255,0.2) 0px, rgba(255,255,255,0.2) 2px, transparent 2px, transparent 4px)",
+                  }}
+                />
+
                 {/* Die-Cut Vinyl Badge with Realistic Multi-Layer Depth */}
                 <div className="relative w-20 h-20 sm:w-22 sm:h-22 xl:w-26 xl:h-26 rounded-full drop-shadow-[0_16px_24px_rgba(0,0,0,0.45)] ring-4 ring-white shadow-2xl overflow-hidden group-hover:drop-shadow-[0_24px_38px_rgba(0,0,0,0.7)] transition-all bg-zinc-950">
                   <Image
@@ -571,32 +561,14 @@ export default function DeskCollageHero({
             </div>
           </div>
 
-          {/* 6. PIXEL LED DISPLAY GADGET (Center Right) */}
-          <div
-            onClick={() => setPixelMode((m) => (m + 1) % PIXEL_MODES.length)}
-            title="Click to toggle pixel icon!"
-            className="hidden lg:block absolute right-[15%] xl:right-[18%] top-[26%] xl:top-[28%] z-20 transition-transform duration-300 hover:scale-115 active:scale-95 cursor-pointer"
-          >
-            <div className="size-24 rounded-2xl bg-[#18181B] p-2 border border-zinc-700 shadow-xl flex flex-col items-center justify-center relative rotate-[4deg]">
-              <div className="relative size-16 rounded-lg overflow-hidden">
-                <Image
-                  src="/hero-collage/pixel-display.jpg"
-                  alt="Pixel art LED display"
-                  fill
-                  className="object-cover"
-                  sizes="64px"
-                />
-              </div>
-              <span className="absolute bottom-1 text-[0.6rem] font-mono text-amber-400 animate-pulse">
-                {PIXEL_MODES[pixelMode]}
-              </span>
-            </div>
+          {/* 6. INTERACTIVE ROCKET (Facing Left with Fire Hover Animation) */}
+          <div className="hidden lg:block absolute right-[14%] xl:right-[17%] top-[27%] xl:top-[29%] z-20">
+            <InteractiveRocket />
           </div>
 
           {/* 6B. CONVERSE CHUCK TAYLOR SNEAKER (Bottom Center Empty Space) */}
           <div
             className="hidden md:block absolute left-[46%] lg:left-[48%] xl:left-[50%] bottom-6 lg:bottom-8 xl:bottom-10 z-20 cursor-pointer transition-all duration-300 hover:scale-115 hover:rotate-3 group"
-            title="Converse Chuck 70 All Star ~"
           >
             <div className="relative rotate-[6deg]">
               {/* Converse Sneaker Cutout Image with Drop Shadow */}
@@ -668,7 +640,7 @@ export default function DeskCollageHero({
           <div
             onClick={() => setIsPlayingVinyl(!isPlayingVinyl)}
             className="hidden md:block absolute left-2 sm:left-4 bottom-8 lg:bottom-10 z-20 cursor-pointer transition-transform duration-300 hover:scale-110"
-            title="Click to spin record!"
+            aria-label="Spin vinyl record"
           >
             <div className="w-32 bg-white rounded-xl p-2 shadow-lg border border-zinc-200/90 rotate-[-5deg] flex flex-col items-center">
               {/* Spinning Vinyl Graphic */}
@@ -702,7 +674,7 @@ export default function DeskCollageHero({
           </div>
 
           {/* 9. PINNED POLAROID KRAFT PAPER BOARD (Bottom Right) - Matching Reference */}
-          <div className="relative mt-6 lg:mt-0 lg:absolute lg:right-4 lg:bottom-6 xl:bottom-8 z-20 transition-transform duration-300 hover:rotate-0 hover:scale-105">
+          <div className="relative mt-6 lg:mt-0 lg:absolute lg:right-4 lg:bottom-1 xl:bottom-2 z-20 transition-transform duration-300 hover:rotate-0 hover:scale-105">
             {/* Washi tape on top of kraft paper */}
             <div className="w-24 h-5 bg-[#C9B18B]/80 backdrop-blur-xs shadow-xs mx-auto -mb-2.5 rotate-[3deg] z-30 relative border border-stone-300/40 rounded-xs" />
 
@@ -801,7 +773,7 @@ export default function DeskCollageHero({
             <span>CORE RESEARCH: NEURO-SYMBOLIC TREES & LATENT DIFFUSION</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-zinc-400">BASED IN PHILADELPHIA // READY TO COLLABORATE</span>
+            <span className="text-zinc-400">BASED IN INDIA // READY TO COLLABORATE</span>
           </div>
         </div>
       </div>

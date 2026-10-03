@@ -443,7 +443,7 @@ export function OrbitCardStack({
                   )}
                   aria-label="Open project view"
                 >
-                  <ArrowUpRight className="size-4" aria-hidden />
+                  <ArrowUpRight className="size-5 stroke-[2.2]" aria-hidden />
                 </span>
               </div>
 

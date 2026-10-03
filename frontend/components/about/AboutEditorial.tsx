@@ -1,14 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
+import InteractiveHotspot from "@/components/interactive/InteractiveHotspot";
 
 export default function AboutEditorial() {
   return (
     <section
       id="about"
       aria-label="About Sahil Saini"
-      className="relative w-full py-2 sm:py-3 md:py-4 my-1 flex items-center justify-center select-none"
+      className="relative w-full py-4 sm:py-6 md:py-8 my-1 flex items-center justify-center select-none overflow-visible"
     >
+      {/* Interactive 3D Hotspot Right: Deformed Wave Grid (matching Image 3) */}
+      <div className="hidden lg:block absolute right-[2%] top-1/2 -translate-y-1/2 z-20 pointer-events-auto">
+        <InteractiveHotspot
+          id="about-wave"
+          shape="wave"
+          label="3D.03 // WAVE"
+          activeIcon="circle-square"
+          popupSide="left"
+        />
+      </div>
       {/* Centered Editorial Monospace Statement */}
       <div className="max-w-4xl mx-auto px-4 text-center">
         {/* Editorial Statement Lines */}
