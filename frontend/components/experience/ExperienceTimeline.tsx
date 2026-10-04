@@ -109,9 +109,6 @@ export function ExperienceTimeline({
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 font-[var(--display)]">
             Experience & Milestones
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-500 max-w-xl">
-            Scroll to trace the timeline path through research labs and engineering roles.
-          </p>
         </div>
 
         {/* 3D Wireframe Hotspot */}

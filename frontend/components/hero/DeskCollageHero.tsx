@@ -34,7 +34,7 @@ export default function DeskCollageHero({
 
       {/* 1. LANYARD & ID BADGE - Connected directly to the top edge with pendulum sway (Desktop) */}
       <div
-        className="hidden lg:block absolute -top-4 sm:-top-6 lg:-top-8 left-[3.5%] lg:left-[4%] xl:left-[4.5%] 2xl:left-[5%] z-35 pointer-events-auto select-none animate-lanyard-sway"
+        className="hidden lg:block absolute -top-4 sm:-top-6 lg:-top-8 left-[3.5%] lg:left-[4%] xl:left-[4.5%] 2xl:left-[5%] z-40 pointer-events-none select-none animate-lanyard-sway"
         style={{ transformOrigin: "50% 0px" }}
       >
         {/* Top ceiling clip mounting anchor */}
@@ -44,13 +44,17 @@ export default function DeskCollageHero({
         <div className="flex flex-col items-center mx-auto">
           {/* Long woven fabric strap extending from the top ceiling */}
           <div className="w-9 h-36 sm:h-40 xl:h-44 bg-[#18181B] shadow-md relative overflow-hidden flex items-center justify-center border-x border-zinc-800">
-            {/* Woven text running vertically along the strap matching YANLIU.DESIGN */}
-            <span
-              className="text-[0.62rem] font-mono tracking-[0.28em] text-zinc-300 rotate-90 whitespace-nowrap uppercase select-none font-semibold"
-              style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+            {/* Woven text running vertically along the strap */}
+            <div
+              className="relative z-10 flex flex-col items-center justify-center font-mono text-[0.62rem] sm:text-[0.68rem] font-bold text-zinc-200 select-none leading-[1.28] sm:leading-[1.34] tracking-widest uppercase"
+              aria-label="ENGINEER"
             >
-              SAHILSAINI.DEV // AI
-            </span>
+              {"ENGINEER".split("").map((char, idx) => (
+                <span key={idx} className="block text-center drop-shadow-xs">
+                  {char}
+                </span>
+              ))}
+            </div>
             {/* Ribbed fabric weave texture */}
             <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_2px,transparent_2px,transparent_4px)] pointer-events-none" />
           </div>
@@ -64,7 +68,7 @@ export default function DeskCollageHero({
         </div>
 
         {/* Badge Holder Card - Matching Yan Liu Reference Image */}
-        <div className="w-64 sm:w-[264px] bg-[#18181A] text-white rounded-[24px] shadow-[0_25px_55px_rgba(0,0,0,0.5),0_10px_20px_rgba(0,0,0,0.3)] border border-zinc-700/80 relative overflow-hidden -mt-2 transition-all duration-300 group hover:shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
+        <div className="w-64 sm:w-[264px] bg-[#18181A] text-white rounded-[24px] shadow-[0_25px_55px_rgba(0,0,0,0.5),0_10px_20px_rgba(0,0,0,0.3)] border border-zinc-700/80 relative overflow-hidden -mt-2 transition-all duration-300 group hover:shadow-[0_30px_70px_rgba(0,0,0,0.6)] pointer-events-auto">
           {/* Cutout punch slot */}
           <div className="mx-auto w-12 h-2.5 rounded-full bg-zinc-950 border border-zinc-700/90 mt-2.5 shadow-inner" />
 
@@ -94,28 +98,21 @@ export default function DeskCollageHero({
 
           {/* Lower Section with Circular Cutout Photo */}
           <div className="p-4 bg-[#141416]/90 flex flex-col items-center">
-            {/* Circular Cutout Photo with cartoon switch on image hover only */}
+            {/* Circular Cutout Photo */}
             <div
-              className="group/avatar relative size-32 rounded-full border-2 border-zinc-700/80 ring-4 ring-black/50 shadow-2xl overflow-hidden bg-zinc-900 my-1 cursor-pointer select-none"
+              className="group relative size-32 rounded-full border-2 border-zinc-700/80 ring-4 ring-black/50 shadow-2xl overflow-hidden bg-zinc-900 my-1 select-none"
             >
-              {/* Real photo (base layer) */}
               <Image
-                src="/sahil/sahil-portrait.jpg"
+                src="/sahil/sahil-photo.jpg"
                 alt="Sahil Saini"
                 fill
-                className="object-cover object-top transition-opacity duration-300 ease-out group-hover/avatar:opacity-0"
+                className="object-cover object-[50%_28%] scale-100 transition-transform duration-500 ease-out group-hover:scale-105"
                 sizes="128px"
                 priority
               />
-              {/* Cartoon illustrated photo (shows only when hovering directly on the image) */}
-              <Image
-                src="/sahil/sahil-cartoon.jpg"
-                alt="Sahil Saini Cartoon"
-                fill
-                className="object-cover object-top opacity-0 transition-all duration-300 ease-out group-hover/avatar:opacity-100 group-hover/avatar:scale-105"
-                sizes="128px"
+              <div
+                className="absolute inset-0 rounded-full ring-2 ring-transparent transition-all duration-300 pointer-events-none group-hover:ring-[#FF4A3D]/40"
               />
-              <div className="absolute inset-0 rounded-full ring-2 ring-transparent group-hover/avatar:ring-[#FF4A3D]/40 transition-all duration-300 pointer-events-none" />
             </div>
 
             {/* Minimalist ID tag */}
@@ -151,18 +148,18 @@ export default function DeskCollageHero({
       </div>
 
       {/* Main Container */}
-      <div className="relative z-10 w-full h-full px-2 sm:px-4 lg:px-6 pt-1 pb-2 flex flex-col justify-between flex-1">
+      <div className="relative w-full h-full px-2 sm:px-4 lg:px-6 pt-1 pb-2 flex flex-col justify-between flex-1">
         {/* Unified Top Header Bar matching the below design & color */}
-        <div className="flex items-center justify-between text-xs font-mono tracking-widest uppercase text-zinc-600 border-b border-zinc-200/80 pb-3 relative z-40">
+        <div className="flex items-center justify-between text-xs font-mono tracking-widest uppercase text-zinc-600 border-b border-zinc-200/80 pb-3 relative z-30">
           {/* Left: ● SAHIL SAINI (with replay click) */}
           <button
             type="button"
             onClick={onReplay}
-            className="group flex items-center gap-2 cursor-pointer select-none text-left focus-visible:outline-none"
+            className="group relative z-50 flex items-center gap-2 cursor-pointer select-none text-left focus-visible:outline-none py-1 -my-1 pr-3"
             aria-label="Replay intro animation"
           >
             <span className="size-2 rounded-full bg-[#FF4A3D] animate-pulse" />
-            <span className="font-bold text-zinc-950 group-hover:text-[#FF4A3D] transition-colors">
+            <span className="font-bold text-zinc-950 group-hover:text-[#FF4A3D] transition-colors whitespace-nowrap">
               {fullName}
             </span>
             <span className="opacity-0 group-hover:opacity-100 transition-all duration-200 text-xs text-[#FF4A3D] ml-0.5">
@@ -171,7 +168,7 @@ export default function DeskCollageHero({
           </button>
 
           {/* Right: EXPERIENCE  SKILLS  PROJECTS  CONTACT ↗ */}
-          <div className="hidden sm:flex items-center gap-6 lg:gap-8 text-[0.72rem] font-mono tracking-widest uppercase">
+          <div className="hidden sm:flex items-center gap-6 lg:gap-8 text-[0.72rem] font-mono tracking-widest uppercase relative z-50">
             <button
               type="button"
               onClick={() => scrollTo("experience")}
@@ -352,8 +349,8 @@ export default function DeskCollageHero({
               <span className="text-[#FF4A3D]">,</span>
               <span>THEN I BUILD</span>
             </div>
-            <p className="mt-2 text-xs font-mono text-zinc-400 tracking-wider">
-              AI / ML RESEARCHER & SYSTEMS ARCHITECT
+            <p className="mt-2 text-xs font-mono text-zinc-400 tracking-wider uppercase">
+              AI / ML Engineer & Researcher
             </p>
           </div>
 
@@ -624,13 +621,13 @@ export default function DeskCollageHero({
                   <span className="text-emerald-400">~ $</span> whoami
                 </div>
                 <div className="text-white font-medium pl-2">
-                  Senior AI/ML Researcher & Systems Architect
+                  AI/ML Engineer & Researcher
                 </div>
                 <div className="text-zinc-400 pt-0.5">
                   <span className="text-emerald-400">~ $</span> cat focus_areas.json
                 </div>
-                <div className="text-zinc-300 pl-2 text-[0.62rem] text-[#FF4A3D]">
-                  [&quot;reasoning_trees&quot;, &quot;diffusion_geometry&quot;, &quot;gpu_kernels&quot;]
+                <div className="text-zinc-300 pl-2 text-[0.62rem] text-[#FF4A3D] break-words">
+                  [&quot;GNN&quot;, &quot;deep_learning&quot;, &quot;DSA&quot;, &quot;reasoning_trees&quot;]
                 </div>
               </div>
             </div>
@@ -691,7 +688,7 @@ export default function DeskCollageHero({
                 <div className="bg-white p-1 pb-1.5 rounded-xs shadow-xs border border-stone-200 rotate-[-2deg] transition-transform hover:scale-105">
                   <div className="relative w-full h-18 sm:h-20 rounded-2xs overflow-hidden bg-black">
                     <Image
-                      src="/hero-collage/sahil-laptop-crisp.jpg"
+                      src="/hero-collage/sahil-laptop-balanced.jpg"
                       alt="Sahil Saini dev workstation laptop"
                       fill
                       className="object-contain object-center"
@@ -770,7 +767,7 @@ export default function DeskCollageHero({
         <div className="border-t border-zinc-200/80 pt-2 pb-1 flex flex-col sm:flex-row items-center justify-between text-[0.68rem] sm:text-xs font-mono text-zinc-500 gap-2">
           <div className="flex items-center gap-2">
             <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>CORE RESEARCH: NEURO-SYMBOLIC TREES & LATENT DIFFUSION</span>
+            <span>CORE RESEARCH: GRAPH NEURAL NETWORKS & GEOMETRIC DEEP LEARNING</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-zinc-400">BASED IN INDIA // READY TO COLLABORATE</span>

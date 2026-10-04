@@ -64,7 +64,7 @@ export function ProjectsSection() {
             Selected Works &amp; Systems
           </h2>
           <p className="mt-2 text-sm sm:text-base text-zinc-600 max-w-xl leading-relaxed">
-            Explorations in mathematical reasoning models, high-dimensional latent diffusion geometry, and sub-millisecond inference acceleration.
+            A curated collection of production ML pipelines, predictive modeling architectures, and semantic information retrieval systems.
           </p>
         </div>
 

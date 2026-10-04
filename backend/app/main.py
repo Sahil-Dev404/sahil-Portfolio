@@ -12,10 +12,11 @@ app = FastAPI(
     redoc_url="/redoc",
 )
 
-# CORS configuration allowing frontend origin from environment variables
+# CORS configuration allowing frontend origin from environment variables and Vercel deployments
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.frontend_origin],
+    allow_origins=settings.allowed_origins,
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

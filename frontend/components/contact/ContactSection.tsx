@@ -17,7 +17,7 @@ export function ContactSection() {
 
   // Boiler email - easily editable by user
   const contactEmail = "2005sahilsaini@gmail.com";
-  const contactPhone = "+1 720-813-5491";
+  const contactPhone = "----";
   const contactLinkedin = "in/sahil-saini-a47b40324";
   const contactGithub = "@Sahil-Dev404";
 
@@ -109,9 +109,6 @@ export function ContactSection() {
       {/* Header Info */}
       <div className="relative z-10 flex items-start justify-between gap-4">
         <div>
-          <div className="text-xs font-mono tracking-widest text-[#FF4A3D] uppercase mb-2">
-            § 04
-          </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-zinc-950 font-[var(--display)] uppercase">
             Contact
           </h2>
