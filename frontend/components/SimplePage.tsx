@@ -9,7 +9,6 @@ import ProjectsSection from "./projects/ProjectsSection";
 import ContactSection from "./contact/ContactSection";
 import Footer from "./footer/Footer";
 import DeskCollageHero from "./hero/DeskCollageHero";
-import SiteHotspots from "./interactive/SiteHotspots";
 
 type Props = {
   onReplay: () => void;
@@ -60,9 +59,6 @@ export default function SimplePage({ onReplay }: Props) {
         <div className="rise" style={{ "--d": ".95s" } as CSSProperties}>
           <Footer />
         </div>
-
-        {/* Global Floating and Dynamic 3D + Hotspots */}
-        <SiteHotspots />
       </div>
     </main>
   );
