@@ -636,7 +636,7 @@ export function SkillsSection() {
 
           <div className="flex items-center gap-3 self-start sm:self-auto">
             {/* Minimal Category Filter Pills on Light Surface */}
-            <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-2xl bg-white border border-zinc-200 shadow-2xs">
+            <div className="flex sm:flex-wrap items-center gap-1.5 p-1 rounded-2xl bg-white border border-zinc-200 shadow-2xs overflow-x-auto no-scrollbar max-w-full">
               {categories.map((cat) => {
                 const isActive = activeCategory === cat.id;
                 return (
@@ -644,7 +644,7 @@ export function SkillsSection() {
                     key={cat.id}
                     type="button"
                     onClick={() => setActiveCategory(cat.id)}
-                    className={`px-3 py-1 rounded-xl text-[0.7rem] font-medium tracking-wide transition-all duration-200 cursor-pointer ${
+                    className={`shrink-0 px-3 py-1 rounded-xl text-[0.7rem] font-medium tracking-wide transition-all duration-200 cursor-pointer ${
                       isActive
                         ? "bg-zinc-950 text-white font-semibold shadow-xs"
                         : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100/70"

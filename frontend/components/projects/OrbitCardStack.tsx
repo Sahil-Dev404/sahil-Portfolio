@@ -304,10 +304,13 @@ export function OrbitCardStack({
   const [isMobile, setIsMobile] = useState(false);
   const stageRef = useRef<HTMLDivElement>(null);
   const midpoint = (cards.length - 1) / 2;
+  const [windowWidth, setWindowWidth] = useState(1200);
+  const touchStartX = useRef<number | null>(null);
 
   // Responsive spread detection for smooth scaling across viewports
   useEffect(() => {
     const handleResize = () => {
+      setWindowWidth(window.innerWidth);
       setIsMobile(window.innerWidth < 768);
     };
     handleResize();
@@ -315,7 +318,9 @@ export function OrbitCardStack({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const effectiveSpread = isMobile ? Math.min(spread, 82) : spread;
+  // Desktop keeps full 168 spread; mobile dynamically tightens so cards never cause horizontal overflow
+  const effectiveSpread =
+    windowWidth < 480 ? 34 : windowWidth < 768 ? 58 : spread;
 
   const layouts = useMemo(
     () =>
@@ -359,18 +364,40 @@ export function OrbitCardStack({
     onItemSelect?.(item, index);
   };
 
+  // Mobile Touch Swipe Gesture Handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(diff) > 40) {
+      if (diff < 0) {
+        // Swiped left -> next card
+        activate((activeIndex + 1) % cards.length);
+      } else {
+        // Swiped right -> previous card
+        activate((activeIndex - 1 + cards.length) % cards.length);
+      }
+    }
+    touchStartX.current = null;
+  };
+
   return (
     <div
       className={cn(
-        "relative flex min-h-full w-full items-center justify-center overflow-visible py-8 px-4",
+        "relative flex flex-col min-h-full w-full items-center justify-center overflow-visible py-6 sm:py-8 px-2 sm:px-4",
         className,
       )}
     >
       <div
         ref={stageRef}
-        className="relative h-[530px] sm:h-[550px] w-full max-w-[1040px] flex items-center justify-center"
+        className="relative h-[500px] sm:h-[550px] w-full max-w-[1040px] flex items-center justify-center touch-pan-y"
         onMouseLeave={close}
         onBlur={leaveFocus}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         role="list"
         aria-label="Orbit project card stack"
       >
@@ -484,6 +511,23 @@ export function OrbitCardStack({
             </article>
           );
         })}
+      </div>
+
+      {/* Mobile Swipe Indicators & Navigation Dots (< md) */}
+      <div className="flex md:hidden items-center justify-center gap-2 mt-4 z-40 select-none">
+        {cards.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            onClick={() => activate(i)}
+            className={`transition-all duration-300 rounded-full cursor-pointer ${
+              i === activeIndex
+                ? "w-7 h-2 bg-zinc-950"
+                : "w-2 h-2 bg-zinc-300 hover:bg-zinc-400"
+            }`}
+            aria-label={`Go to project card ${i + 1}`}
+          />
+        ))}
       </div>
     </div>
   );

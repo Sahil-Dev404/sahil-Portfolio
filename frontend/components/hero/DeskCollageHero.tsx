@@ -28,7 +28,7 @@ export default function DeskCollageHero({
   };
 
   return (
-    <section className="relative w-full h-[calc(100vh-1rem)] min-h-[620px] max-h-[880px] text-zinc-950 select-none flex flex-col justify-between mb-2 sm:mb-3">
+    <section className="relative w-full min-h-[640px] h-auto lg:h-[calc(100vh-1rem)] lg:min-h-[620px] lg:max-h-[880px] text-zinc-950 select-none flex flex-col justify-between mb-2 sm:mb-3">
       {/* Ambient subtle light glow */}
       <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(255,74,61,0.04)_0%,transparent_70%)] pointer-events-none" />
 
@@ -167,7 +167,40 @@ export default function DeskCollageHero({
             </span>
           </button>
 
-          {/* Right: EXPERIENCE  SKILLS  PROJECTS  CONTACT ↗ */}
+          {/* Mobile Quick Nav Pills (< sm) */}
+          <div className="flex sm:hidden items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 text-[0.62rem] font-mono tracking-wider uppercase relative z-50">
+            <button
+              type="button"
+              onClick={() => scrollTo("experience")}
+              className="px-2 py-0.5 rounded-full bg-zinc-100 hover:bg-zinc-200 text-zinc-700 active:scale-95 transition-all"
+            >
+              EXP
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollTo("skills")}
+              className="px-2 py-0.5 rounded-full bg-zinc-100 hover:bg-zinc-200 text-zinc-700 active:scale-95 transition-all"
+            >
+              SKILLS
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollTo("projects")}
+              className="px-2 py-0.5 rounded-full bg-zinc-100 hover:bg-zinc-200 text-zinc-700 active:scale-95 transition-all"
+            >
+              WORK
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollTo("contact")}
+              className="px-2.5 py-0.5 rounded-full bg-zinc-950 text-white active:scale-95 transition-all flex items-center gap-0.5 font-bold"
+            >
+              <span>CONTACT</span>
+              <span className="text-zinc-400">↗</span>
+            </button>
+          </div>
+
+          {/* Right: EXPERIENCE  SKILLS  PROJECTS  CONTACT ↗ (Desktop) */}
           <div className="hidden sm:flex items-center gap-6 lg:gap-8 text-[0.72rem] font-mono tracking-widest uppercase relative z-50">
             <button
               type="button"
@@ -331,13 +364,13 @@ export default function DeskCollageHero({
             {/* Signature style title */}
             <div className="relative inline-block">
               <h1
-                className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl text-zinc-950 font-bold leading-none select-none tracking-normal"
+                className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl text-zinc-950 font-bold leading-none select-none tracking-normal"
                 style={{
                   fontFamily: "var(--font-signature), 'Caveat', cursive",
                 }}
               >
                 Sahil Saini
-                <span className="inline-block text-[#FF4A3D] font-sans text-5xl sm:text-6xl lg:text-7xl xl:text-8xl ml-1 font-bold">
+                <span className="inline-block text-[#FF4A3D] font-sans text-4xl sm:text-6xl lg:text-7xl xl:text-8xl ml-1 font-bold">
                   .
                 </span>
               </h1>
