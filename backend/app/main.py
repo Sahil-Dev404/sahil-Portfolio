@@ -25,3 +25,13 @@ app.add_middleware(
 # Register routes under /api
 app.include_router(health_router, prefix="/api")
 app.include_router(contact_router, prefix="/api")
+
+
+@app.get("/")
+def root():
+    return {
+        "status": "online",
+        "service": "Sahil Portfolio Backend API",
+        "docs": "/docs",
+        "health": "/api/health",
+    }
