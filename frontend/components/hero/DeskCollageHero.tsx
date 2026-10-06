@@ -34,7 +34,7 @@ export default function DeskCollageHero({
 
       {/* 1. LANYARD & ID BADGE - Connected directly to the top edge with pendulum sway (Desktop) */}
       <div
-        className="hidden lg:block absolute -top-4 sm:-top-6 lg:-top-8 left-[3.5%] lg:left-[4%] xl:left-[4.5%] 2xl:left-[5%] z-40 pointer-events-none select-none animate-lanyard-sway"
+        className="hidden lg:block absolute -top-4 sm:-top-6 lg:-top-8 left-[2.5%] lg:left-[3.5%] xl:left-[4.5%] 2xl:left-[5%] z-40 pointer-events-none select-none animate-lanyard-sway"
         style={{ transformOrigin: "50% 0px" }}
       >
         {/* Top ceiling clip mounting anchor */}
@@ -68,7 +68,7 @@ export default function DeskCollageHero({
         </div>
 
         {/* Badge Holder Card - Matching Yan Liu Reference Image */}
-        <div className="w-64 sm:w-[264px] bg-[#18181A] text-white rounded-[24px] shadow-[0_25px_55px_rgba(0,0,0,0.5),0_10px_20px_rgba(0,0,0,0.3)] border border-zinc-700/80 relative overflow-hidden -mt-2 transition-all duration-300 group hover:shadow-[0_30px_70px_rgba(0,0,0,0.6)] pointer-events-auto">
+        <div className="w-[245px] xl:w-[264px] bg-[#18181A] text-white rounded-[24px] shadow-[0_25px_55px_rgba(0,0,0,0.5),0_10px_20px_rgba(0,0,0,0.3)] border border-zinc-700/80 relative overflow-hidden -mt-2 transition-all duration-300 group hover:shadow-[0_30px_70px_rgba(0,0,0,0.6)] pointer-events-auto">
           {/* Cutout punch slot */}
           <div className="mx-auto w-12 h-2.5 rounded-full bg-zinc-950 border border-zinc-700/90 mt-2.5 shadow-inner" />
 
@@ -319,7 +319,7 @@ export default function DeskCollageHero({
           </div>
 
           {/* Mobile Physical Desk Sticker Badges */}
-          <div className="md:hidden flex items-center justify-center gap-6 my-3 z-25">
+          <div className="lg:hidden flex items-center justify-center gap-6 my-3 z-25">
             <a
               href="https://www.linkedin.com/in/sahil-saini-a47b40324/"
               target="_blank"
@@ -364,13 +364,13 @@ export default function DeskCollageHero({
             {/* Signature style title */}
             <div className="relative inline-block">
               <h1
-                className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl text-zinc-950 font-bold leading-none select-none tracking-normal"
+                className="text-5xl sm:text-7xl lg:text-[4.75rem] xl:text-8xl 2xl:text-9xl text-zinc-950 font-bold leading-none select-none tracking-normal"
                 style={{
                   fontFamily: "var(--font-signature), 'Caveat', cursive",
                 }}
               >
                 Sahil Saini
-                <span className="inline-block text-[#FF4A3D] font-sans text-4xl sm:text-6xl lg:text-7xl xl:text-8xl ml-1 font-bold">
+                <span className="inline-block text-[#FF4A3D] font-sans text-4xl sm:text-6xl lg:text-[4rem] xl:text-7xl 2xl:text-8xl ml-1 font-bold">
                   .
                 </span>
               </h1>
@@ -388,12 +388,12 @@ export default function DeskCollageHero({
           </div>
 
           {/* 3. TORN PAPER WITH ICED COFFEE & PENCIL (Top Center/Left) */}
-          <div className="hidden lg:block absolute left-[34%] xl:left-[35%] top-1 z-10 transition-transform duration-300 hover:rotate-1 hover:scale-105">
+          <div className="hidden lg:block absolute left-[31%] xl:left-[35%] top-1 z-10 transition-transform duration-300 hover:rotate-1 hover:scale-105">
             {/* Washi Masking Tape */}
-            <div className="w-24 h-6 bg-[#D7C2A3]/80 backdrop-blur-xs shadow-xs mx-auto -mb-3 rotate-[-3deg] z-20 relative border border-stone-300/40 rounded-xs" />
+            <div className="w-20 xl:w-24 h-5 xl:h-6 bg-[#D7C2A3]/80 backdrop-blur-xs shadow-xs mx-auto -mb-3 rotate-[-3deg] z-20 relative border border-stone-300/40 rounded-xs" />
             {/* Torn White Paper Backing */}
-            <div className="w-44 h-44 bg-[#FAFAF9] rounded-sm p-2 shadow-[0_8px_20px_rgba(0,0,0,0.08)] border border-stone-200/90 rotate-[2deg] overflow-hidden flex items-center justify-center">
-              <div className="relative size-36 rounded-xs overflow-hidden">
+            <div className="w-38 h-38 xl:w-44 xl:h-44 bg-[#FAFAF9] rounded-sm p-2 shadow-[0_8px_20px_rgba(0,0,0,0.08)] border border-stone-200/90 rotate-[2deg] overflow-hidden flex items-center justify-center">
+              <div className="relative size-30 xl:size-36 rounded-xs overflow-hidden">
                 <Image
                   src="/hero-collage/iced-coffee.jpg"
                   alt="Front view iced coffee glass & yellow pencil"
@@ -406,8 +406,8 @@ export default function DeskCollageHero({
           </div>
 
           {/* 4. POTTED MONSTERA PLANT (Front eye-level view matching reference) */}
-          <div className="hidden lg:block absolute left-[23%] xl:left-[25%] top-4 xl:top-6 z-15 transition-transform duration-300 hover:-rotate-3 hover:scale-110 cursor-pointer select-none">
-            <div className="w-32 h-36 xl:w-36 xl:h-40 relative drop-shadow-[0_14px_24px_rgba(0,0,0,0.18)]">
+          <div className="hidden lg:block absolute left-[20%] xl:left-[25%] top-4 xl:top-6 z-15 transition-transform duration-300 hover:-rotate-3 hover:scale-110 cursor-pointer select-none">
+            <div className="w-28 h-32 xl:w-36 xl:h-40 relative drop-shadow-[0_14px_24px_rgba(0,0,0,0.18)]">
               <Image
                 src="/hero-collage/plant.png"
                 alt="Potted monstera front view desk plant"
@@ -419,7 +419,7 @@ export default function DeskCollageHero({
           </div>
 
           {/* 4B. PHYSICAL DESK COLLAGE: LINKEDIN VINYL STICKER BADGE */}
-          <div className="hidden md:block absolute left-[47%] lg:left-[49%] xl:left-[50%] top-5 lg:top-6 xl:top-7 z-25 select-none">
+          <div className="hidden lg:block absolute left-[46%] lg:left-[49%] xl:left-[50%] top-5 lg:top-6 xl:top-7 z-25 select-none">
             <a
               href="https://www.linkedin.com/in/sahil-saini-a47b40324/"
               target="_blank"
@@ -475,7 +475,7 @@ export default function DeskCollageHero({
           </div>
 
           {/* 4C. PHYSICAL DESK COLLAGE: GITHUB VINYL STICKER BADGE */}
-          <div className="hidden md:block absolute left-[64%] lg:left-[66%] xl:left-[67%] top-7 lg:top-8 xl:top-10 z-25 select-none">
+          <div className="hidden lg:block absolute left-[63%] lg:left-[66%] xl:left-[67%] top-7 lg:top-8 xl:top-10 z-25 select-none">
             <a
               href="https://github.com/Sahil-Dev404"
               target="_blank"
@@ -521,8 +521,8 @@ export default function DeskCollageHero({
           </div>
 
           {/* 5. TECH BOARDING PASS / TICKET (Top Right) - Rich Interactive Animations */}
-          <div className="hidden lg:block absolute right-6 lg:right-8 top-2 z-15 group cursor-pointer select-none">
-            <div className="w-80 bg-white rounded-xl border border-zinc-300/90 shadow-md p-3.5 flex items-center justify-between rotate-[-2deg] relative overflow-hidden transition-all duration-300 ease-out group-hover:-translate-y-2 group-hover:rotate-[0deg] group-hover:scale-105 group-hover:shadow-[0_24px_50px_rgba(0,0,0,0.18)]">
+          <div className="hidden lg:block absolute right-3 lg:right-6 xl:right-8 top-2 z-15 group cursor-pointer select-none">
+            <div className="w-72 xl:w-80 bg-white rounded-xl border border-zinc-300/90 shadow-md p-3.5 flex items-center justify-between rotate-[-2deg] relative overflow-hidden transition-all duration-300 ease-out group-hover:-translate-y-2 group-hover:rotate-[0deg] group-hover:scale-105 group-hover:shadow-[0_24px_50px_rgba(0,0,0,0.18)]">
               {/* Sweeping holographic sheen reflection across ticket surface */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none z-30" />
 
@@ -592,13 +592,13 @@ export default function DeskCollageHero({
           </div>
 
           {/* 6. INTERACTIVE ROCKET (Facing Left with Fire Hover Animation) */}
-          <div className="hidden lg:block absolute right-[14%] xl:right-[17%] top-[27%] xl:top-[29%] z-20">
+          <div className="hidden lg:block absolute right-[12%] lg:right-[14%] xl:right-[17%] top-[27%] xl:top-[29%] z-20">
             <InteractiveRocket />
           </div>
 
           {/* 6B. CONVERSE CHUCK TAYLOR SNEAKER (Bottom Center Empty Space) */}
           <div
-            className="hidden md:block absolute left-[46%] lg:left-[48%] xl:left-[50%] bottom-6 lg:bottom-8 xl:bottom-10 z-20 cursor-pointer transition-all duration-300 hover:scale-115 hover:rotate-3 group"
+            className="hidden lg:block absolute left-[46%] lg:left-[48%] xl:left-[50%] bottom-6 lg:bottom-8 xl:bottom-10 z-20 cursor-pointer transition-all duration-300 hover:scale-115 hover:rotate-3 group"
           >
             <div className="relative rotate-[6deg]">
               {/* Converse Sneaker Cutout Image with Drop Shadow */}
@@ -640,7 +640,7 @@ export default function DeskCollageHero({
           </div>
 
           {/* 7. INTERACTIVE TERMINAL WINDOW (Bottom Center/Left) */}
-          <div className="hidden md:block absolute left-4 lg:left-[21%] xl:left-[23%] bottom-8 lg:bottom-10 z-25 transition-transform duration-300 hover:scale-105">
+          <div className="hidden lg:block absolute left-4 lg:left-[19%] xl:left-[23%] bottom-6 lg:bottom-8 xl:bottom-10 z-25 transition-transform duration-300 hover:scale-105">
             <div className="w-68 sm:w-76 bg-[#18181B] text-zinc-200 rounded-xl shadow-xl border border-zinc-800 p-3 font-mono text-[0.68rem] rotate-[-2deg]">
               {/* Traffic light buttons */}
               <div className="flex items-center gap-1.5 mb-2 pb-1 border-b border-zinc-800">
@@ -669,7 +669,7 @@ export default function DeskCollageHero({
           {/* 8. VINYL RECORD "VIBE CODING" (Bottom Left) - Matching Reference */}
           <div
             onClick={() => setIsPlayingVinyl(!isPlayingVinyl)}
-            className="hidden md:block absolute left-2 sm:left-4 bottom-8 lg:bottom-10 z-20 cursor-pointer transition-transform duration-300 hover:scale-110"
+            className="hidden lg:block absolute left-2 lg:left-4 bottom-6 lg:bottom-8 xl:bottom-10 z-20 cursor-pointer transition-transform duration-300 hover:scale-110"
             aria-label="Spin vinyl record"
           >
             <div className="w-32 bg-white rounded-xl p-2 shadow-lg border border-zinc-200/90 rotate-[-5deg] flex flex-col items-center">
@@ -704,12 +704,12 @@ export default function DeskCollageHero({
           </div>
 
           {/* 9. PINNED POLAROID KRAFT PAPER BOARD (Bottom Right) - Matching Reference */}
-          <div className="relative mt-6 lg:mt-0 lg:absolute lg:right-4 lg:bottom-1 xl:bottom-2 z-20 transition-transform duration-300 hover:rotate-0 hover:scale-105">
+          <div className="relative mt-6 lg:mt-0 lg:absolute lg:right-3 xl:right-4 lg:bottom-1 xl:bottom-2 z-20 transition-transform duration-300 hover:rotate-0 hover:scale-105">
             {/* Washi tape on top of kraft paper */}
             <div className="w-24 h-5 bg-[#C9B18B]/80 backdrop-blur-xs shadow-xs mx-auto -mb-2.5 rotate-[3deg] z-30 relative border border-stone-300/40 rounded-xs" />
 
             {/* Kraft Paper Board */}
-            <div className="w-72 sm:w-80 bg-[#EDE5D8] rounded-xl p-3 shadow-[0_10px_24px_rgba(0,0,0,0.16)] border border-stone-300 rotate-[2deg] relative">
+            <div className="w-72 xl:w-80 bg-[#EDE5D8] rounded-xl p-3 shadow-[0_10px_24px_rgba(0,0,0,0.16)] border border-stone-300 rotate-[2deg] relative">
               <div className="flex items-center justify-between mb-2 text-[0.58rem] font-mono tracking-wider text-stone-600 border-b border-stone-300 pb-1">
                 <span>LAB JOURNAL // SNAPSHOTS</span>
                 <span>★ 2024–2026</span>

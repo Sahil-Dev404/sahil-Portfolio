@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-lg: 58rem;
+}
+
 :root {
   --grid-size: 44px;
   --grid-line: rgba(24, 24, 27, 0.065);
