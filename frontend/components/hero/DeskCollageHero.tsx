@@ -242,125 +242,376 @@ export default function DeskCollageHero({
         {/* ======================================================== */}
         {/* DESK COLLAGE CANVAS (Desktop Scattered / Mobile Adaptive) */}
         {/* ======================================================== */}
-        <div className="relative w-full flex-1 my-2 flex items-center justify-center overflow-visible">
 
-          {/* Mobile Lanyard Badge (centered on small screens) */}
-          <div
-            className="lg:hidden relative z-30 my-4 select-none animate-lanyard-sway cursor-pointer"
-            style={{ transformOrigin: "50% 0px" }}
-          >
-            {/* Mobile Hanging Strap */}
-            <div className="flex flex-col items-center mx-auto">
-              <div className="w-8 h-16 bg-[#18181B] shadow-sm relative overflow-hidden flex items-center justify-center border-x border-zinc-800">
-                <span
-                  className="text-[0.55rem] font-mono tracking-[0.2em] text-zinc-400 rotate-90 whitespace-nowrap uppercase select-none font-semibold"
-                  style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-                >
-                  SAHIL // AI
+        {/* ----------------- MOBILE COLLAGE (< lg) ----------------- */}
+        <div className="lg:hidden w-full flex flex-col items-center gap-5 my-3 px-1 select-none overflow-visible">
+          {/* 1. Mobile Top Flat-Lay Cluster (Badge, Boarding Pass, Rocket, AF1, Plant) */}
+          <div className="relative w-full max-w-[360px] h-[340px] mx-auto select-none overflow-visible">
+            {/* Lanyard & ID Card Badge (Left / Foreground) */}
+            <div
+              className="absolute left-1 top-0 z-25 select-none animate-lanyard-sway cursor-pointer"
+              style={{ transformOrigin: "50% 0px" }}
+            >
+              {/* Strap */}
+              <div className="flex flex-col items-center mx-auto">
+                <div className="w-8 h-12 bg-[#18181B] shadow-xs relative overflow-hidden flex items-center justify-center border-x border-zinc-800">
+                  <span
+                    className="text-[0.52rem] font-mono tracking-[0.2em] text-zinc-300 rotate-90 whitespace-nowrap uppercase select-none font-bold"
+                    style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+                  >
+                    ENGINEER
+                  </span>
+                </div>
+                <div className="w-6 h-3 rounded-xs bg-gradient-to-b from-zinc-300 via-zinc-400 to-zinc-600 border border-zinc-500 shadow-2xs -mt-0.5 flex items-center justify-center">
+                  <div className="w-3 h-1 bg-zinc-800 rounded-2xs" />
+                </div>
+              </div>
+
+              {/* ID Card */}
+              <div className="w-[215px] bg-[#18181A] text-white rounded-[20px] shadow-xl border border-zinc-700/80 relative overflow-hidden -mt-1 p-3.5 rotate-[-2deg]">
+                <div className="mx-auto w-10 h-2 rounded-full bg-zinc-950 border border-zinc-700/90 mb-2 shadow-inner" />
+                <h3 className="text-xl font-extrabold tracking-tight text-white font-[var(--display)] leading-none text-center">
+                  Sahil Saini
+                </h3>
+                <p className="text-[0.65rem] text-zinc-300 text-center mt-1 leading-tight line-clamp-2">
+                  Love exploring, neural prototyping, storytelling, and visual craft
+                </p>
+                <div className="relative size-20 rounded-full border-2 border-zinc-700 ring-4 ring-black/40 overflow-hidden mx-auto my-2 shadow-lg bg-zinc-900 select-none">
+                  <Image
+                    src="/sahil/sahil-photo.jpg"
+                    alt="Sahil Saini"
+                    fill
+                    className="object-cover object-[50%_28%]"
+                    sizes="80px"
+                  />
+                </div>
+                <div className="text-center text-[0.55rem] font-mono tracking-widest text-zinc-400 uppercase">
+                  SAHIL // AI RESEARCHER
+                </div>
+                <div className="mt-2 flex items-center justify-center gap-1.5">
+                  <a
+                    href="https://www.linkedin.com/in/sahil-saini-a47b40324/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Sahil Saini LinkedIn Profile"
+                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-zinc-800/90 hover:bg-[#0A66C2] text-zinc-300 hover:text-white border border-zinc-700 text-[0.58rem] font-mono tracking-wider transition-all"
+                  >
+                    <LinkedInIcon className="size-2.5 fill-current" />
+                    <span>LinkedIn</span>
+                  </a>
+                  <a
+                    href="https://github.com/Sahil-Dev404"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Sahil Saini GitHub Profile"
+                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-zinc-800/90 hover:bg-zinc-700 text-zinc-300 hover:text-white border border-zinc-700 text-[0.58rem] font-mono tracking-wider transition-all"
+                  >
+                    <GitHubIcon className="size-2.5 fill-current" />
+                    <span>GitHub</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Boarding Pass Ticket (Right / Overlapping) */}
+            <div className="absolute right-0 top-3 z-15 w-[175px] bg-white rounded-lg border border-zinc-300/90 shadow-md p-2.5 rotate-[4deg] overflow-hidden select-none">
+              <div className="flex items-center justify-between border-b border-dashed border-zinc-300 pb-1.5 mb-1.5">
+                <span className="text-[0.52rem] font-mono text-zinc-400 uppercase tracking-widest">
+                  BOARDING PASS
+                </span>
+                <span className="relative flex size-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full size-2 bg-emerald-500" />
                 </span>
               </div>
-              <div className="w-6 h-3.5 rounded-xs bg-gradient-to-b from-zinc-300 to-zinc-500 border border-zinc-400 -mt-0.5 flex items-center justify-center" />
+              <h4 className="text-[0.68rem] font-extrabold tracking-tight text-zinc-950 font-mono leading-tight">
+                RESEARCH X SYSTEMS
+              </h4>
+              <div className="mt-1.5 space-y-0.5 text-[0.55rem] font-mono text-zinc-500">
+                <div className="flex justify-between">
+                  <span className="text-zinc-400">HOST</span>
+                  <span className="font-semibold text-zinc-800">SAHIL DEV</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-zinc-400">GATE</span>
+                  <span className="font-semibold text-[#FF4A3D]">GPU-01</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-zinc-400">PASS</span>
+                  <span className="font-semibold text-zinc-800">2026 // PASS</span>
+                </div>
+              </div>
+              {/* Mini barcode */}
+              <div className="mt-2 pt-1 border-t border-zinc-200 flex items-center justify-center gap-0.5 h-4">
+                <span className="w-0.5 h-full bg-zinc-950" />
+                <span className="w-1.5 h-full bg-zinc-950" />
+                <span className="w-0.5 h-full bg-zinc-950" />
+                <span className="w-1 h-full bg-zinc-950" />
+                <span className="w-2 h-full bg-zinc-950" />
+                <span className="w-0.5 h-full bg-zinc-950" />
+                <span className="w-1.5 h-full bg-zinc-950" />
+              </div>
             </div>
 
-            {/* Mobile Card */}
-            <div className="w-64 bg-[#18181A] text-white rounded-[22px] shadow-xl border border-zinc-700/80 relative overflow-hidden -mt-1 p-4">
-              <div className="mx-auto w-10 h-2 rounded-full bg-zinc-950 border border-zinc-700/90 mb-3" />
-              <h3 className="text-2xl font-extrabold tracking-tight text-white font-[var(--display)] leading-none text-center">
-                Sahil Saini
-              </h3>
-              <p className="text-[0.7rem] text-zinc-300 text-center mt-1.5 leading-snug">
-                Love exploring, prototyping, storytelling, and visual craft
-              </p>
-              <div
-                className="group/avatar relative size-24 rounded-full border-2 border-zinc-700 ring-4 ring-black/40 overflow-hidden mx-auto my-3 shadow-lg bg-zinc-900 cursor-pointer select-none"
+            {/* Interactive Rocket (Right middle) */}
+            <div className="absolute right-2 top-42 z-30 scale-85">
+              <InteractiveRocket />
+            </div>
+
+            {/* Nike AF1 Sneaker Polaroid (Bottom-Left Peek) */}
+            <div className="absolute -left-1 bottom-1 z-10 rotate-[-5deg] cursor-pointer">
+              <div className="w-10 h-2.5 bg-[#E0D1BA]/85 shadow-2xs mx-auto -mb-1 rotate-[4deg] z-20 relative border border-stone-300/40 rounded-2xs" />
+              <div className="w-22 bg-white rounded-xs p-1 pb-1.5 shadow-md border border-stone-200/90 flex flex-col items-center">
+                <div className="relative w-20 h-16 rounded-2xs overflow-hidden bg-zinc-50 flex items-center justify-center">
+                  <Image
+                    src="/hero-collage/nike-af1.png"
+                    alt="Nike Air Force 1"
+                    fill
+                    className="object-contain p-0.5"
+                    sizes="80px"
+                  />
+                </div>
+                <span className="text-[0.45rem] font-mono text-stone-500 mt-0.5">
+                  AF1 ’07 // fresh
+                </span>
+              </div>
+            </div>
+
+            {/* Monstera Plant Sticker (Bottom-Right Peek) */}
+            <div className="absolute right-0 bottom-0 z-10 rotate-[4deg]">
+              <div className="w-20 h-24 relative drop-shadow-md">
+                <Image
+                  src="/hero-collage/plant.png"
+                  alt="Desk plant"
+                  fill
+                  className="object-contain"
+                  sizes="80px"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* 2. Mobile Centerpiece Signature */}
+          <div className="text-center my-2 select-none">
+            <h1
+              className="text-5xl sm:text-6xl text-zinc-950 font-bold leading-none tracking-normal"
+              style={{ fontFamily: "var(--font-signature), 'Caveat', cursive" }}
+            >
+              Sahil Saini
+              <span className="inline-block text-[#FF4A3D] font-sans text-4xl sm:text-5xl ml-1 font-bold">
+                .
+              </span>
+            </h1>
+            <div className="mt-2.5 flex items-center justify-center gap-2 text-[0.68rem] font-mono tracking-[0.24em] text-zinc-500 uppercase">
+              <span>I THINK</span>
+              <span className="text-[#FF4A3D]">,</span>
+              <span>THEN I BUILD</span>
+            </div>
+            <p className="mt-1 text-[0.65rem] font-mono text-zinc-400 tracking-wider uppercase">
+              AI / ML Engineer & Researcher
+            </p>
+          </div>
+
+          {/* 3. Mobile Interactive Terminal Window */}
+          <div className="w-full max-w-[350px] mx-auto select-none transition-transform hover:scale-[1.02]">
+            <div className="bg-[#18181B] text-zinc-200 rounded-xl shadow-xl border border-zinc-800 p-3 font-mono text-[0.65rem] rotate-[-1.5deg]">
+              <div className="flex items-center gap-1.5 mb-2 pb-1 border-b border-zinc-800">
+                <span className="size-2 rounded-full bg-[#FF5F56]" />
+                <span className="size-2 rounded-full bg-[#FFBD2E]" />
+                <span className="size-2 rounded-full bg-[#27C93F]" />
+                <span className="text-[0.58rem] text-zinc-500 ml-2">sahil-saini — zsh</span>
+              </div>
+              <div className="space-y-1">
+                <div className="text-zinc-400">
+                  <span className="text-emerald-400">~ $</span> whoami
+                </div>
+                <div className="text-white font-medium pl-2">
+                  AI/ML Engineer & Researcher
+                </div>
+                <div className="text-zinc-400 pt-0.5">
+                  <span className="text-emerald-400">~ $</span> cat focus_areas.json
+                </div>
+                <div className="text-zinc-300 pl-2 text-[0.6rem] text-[#FF4A3D] break-words">
+                  [&quot;GNN&quot;, &quot;deep_learning&quot;, &quot;DSA&quot;, &quot;reasoning_trees&quot;]
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 4. Mobile Physical Desk Accessories Row (Sneaker + Vinyl + Badges) */}
+          <div className="w-full max-w-[350px] mx-auto flex items-center justify-between gap-2 px-1 select-none">
+            {/* Red Converse Chuck Taylor Sneaker */}
+            <div className="relative group cursor-pointer hover:scale-105 active:scale-95 transition-transform rotate-[6deg]">
+              <div className="relative w-28 h-24 drop-shadow-md">
+                <Image
+                  src="/hero-collage/converse-cutout.png"
+                  alt="Red Converse Chuck Taylor"
+                  fill
+                  className="object-contain"
+                  sizes="112px"
+                />
+              </div>
+              <div className="absolute -bottom-1 left-0 bg-zinc-900/90 text-white text-[0.48rem] font-mono px-1.5 py-0.5 rounded-full border border-zinc-700 shadow-xs whitespace-nowrap">
+                CHUCK 70 ★
+              </div>
+            </div>
+
+            {/* Spinning Vinyl Record */}
+            <div
+              onClick={() => setIsPlayingVinyl(!isPlayingVinyl)}
+              className="bg-white rounded-lg p-1.5 shadow-md border border-zinc-200/90 rotate-[-4deg] flex flex-col items-center cursor-pointer hover:scale-105 active:scale-95 transition-transform"
+              aria-label="Spin vinyl record"
+            >
+              <div className="relative size-14 rounded-full bg-zinc-950 shadow-inner flex items-center justify-center ring-1 ring-zinc-800">
+                <div
+                  className={`size-full rounded-full flex items-center justify-center ${
+                    isPlayingVinyl ? "animate-spin" : ""
+                  }`}
+                  style={{ animationDuration: "3s" }}
+                >
+                  <div className="size-11 rounded-full border border-zinc-800 flex items-center justify-center">
+                    <div className="size-8 rounded-full border border-zinc-800 flex items-center justify-center">
+                      <div className="size-4 rounded-full bg-emerald-500 border border-white flex items-center justify-center">
+                        <div className="size-1 rounded-full bg-zinc-950" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-1 text-center">
+                <span className="text-[0.45rem] font-mono tracking-widest text-zinc-400 uppercase block">
+                  PLAYLIST
+                </span>
+                <span className="text-[0.52rem] font-bold text-zinc-900 font-mono block">
+                  Vibe Coding ♫
+                </span>
+              </div>
+            </div>
+
+            {/* Social Physical Badges */}
+            <div className="flex flex-col items-center gap-2">
+              <a
+                href="https://www.linkedin.com/in/sahil-saini-a47b40324/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Sahil Saini LinkedIn Profile"
+                className="group cursor-pointer select-none active:scale-95 transition-transform"
               >
-                {/* Real photo */}
-                <Image
-                  src="/sahil/sahil-portrait.jpg"
-                  alt="Sahil Saini"
-                  fill
-                  className="object-cover object-top transition-opacity duration-300 ease-out group-hover/avatar:opacity-0"
-                  sizes="96px"
-                />
-                {/* Cartoon photo */}
-                <Image
-                  src="/sahil/sahil-cartoon.jpg"
-                  alt="Sahil Saini Cartoon"
-                  fill
-                  className="object-cover object-top opacity-0 transition-all duration-300 ease-out group-hover/avatar:opacity-100 group-hover/avatar:scale-105"
-                  sizes="96px"
-                />
-              </div>
+                <div className="w-8 h-2 bg-[#D7C2A3]/85 shadow-2xs mx-auto -mb-1 rotate-[-4deg] rounded-2xs border border-stone-300/40" />
+                <div className="relative size-12 rounded-full drop-shadow-md ring-2 ring-white shadow-md overflow-hidden rotate-[-6deg]">
+                  <Image
+                    src="/hero-collage/linkedin-badge.svg"
+                    alt="LinkedIn Badge"
+                    fill
+                    className="object-cover"
+                    sizes="48px"
+                  />
+                </div>
+              </a>
 
-              {/* Mobile Profile Social Buttons */}
-              <div className="mt-2 flex items-center justify-center gap-2">
-                <a
-                  href="https://www.linkedin.com/in/sahil-saini-a47b40324/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Sahil Saini LinkedIn Profile"
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-800/90 hover:bg-[#0A66C2] text-zinc-300 hover:text-white border border-zinc-700 text-xs font-mono transition-colors"
-                >
-                  <LinkedInIcon className="size-3.5 fill-current" />
-                  <span>LinkedIn</span>
-                </a>
-                <a
-                  href="https://github.com/Sahil-Dev404"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Sahil Saini GitHub Profile"
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-800/90 hover:bg-zinc-700 text-zinc-300 hover:text-white border border-zinc-700 text-xs font-mono transition-colors"
-                >
-                  <GitHubIcon className="size-3.5 fill-current" />
-                  <span>GitHub</span>
-                </a>
-              </div>
+              <a
+                href="https://github.com/Sahil-Dev404"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Sahil Saini GitHub Profile"
+                className="group cursor-pointer select-none active:scale-95 transition-transform"
+              >
+                <div className="w-8 h-2 bg-[#C9B18B]/85 shadow-2xs mx-auto -mb-1 rotate-[4deg] rounded-2xs border border-stone-300/40" />
+                <div className="relative size-12 rounded-full drop-shadow-md ring-2 ring-white shadow-md overflow-hidden rotate-[6deg]">
+                  <Image
+                    src="/hero-collage/github-badge.svg"
+                    alt="GitHub Badge"
+                    fill
+                    className="object-cover"
+                    sizes="48px"
+                  />
+                </div>
+              </a>
             </div>
           </div>
 
-          {/* Mobile Physical Desk Sticker Badges */}
-          <div className="lg:hidden flex items-center justify-center gap-6 my-3 z-25">
-            <a
-              href="https://www.linkedin.com/in/sahil-saini-a47b40324/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Sahil Saini LinkedIn Profile"
-              className="group cursor-pointer select-none active:scale-95 transition-transform"
-            >
-              <div className="w-10 h-3 bg-[#D7C2A3]/85 shadow-2xs mx-auto -mb-1.5 rotate-[-4deg] rounded-2xs border border-stone-300/40" />
-              <div className="relative w-16 h-16 rounded-full drop-shadow-md ring-2 ring-white shadow-lg overflow-hidden rotate-[-6deg]">
-                <Image
-                  src="/hero-collage/linkedin-badge.svg"
-                  alt="LinkedIn Badge"
-                  fill
-                  className="object-cover"
-                  sizes="64px"
-                />
+          {/* 5. Mobile Lab Journal Snapshots Board */}
+          <div className="w-full max-w-[350px] mx-auto select-none transition-transform hover:scale-[1.02]">
+            <div className="w-20 h-4 bg-[#C9B18B]/80 backdrop-blur-xs shadow-xs mx-auto -mb-2 rotate-[3deg] z-20 relative border border-stone-300/40 rounded-xs" />
+            <div className="bg-[#EDE5D8] rounded-xl p-3 shadow-md border border-stone-300 rotate-[1.5deg] relative">
+              <div className="flex items-center justify-between mb-2 text-[0.55rem] font-mono tracking-wider text-stone-600 border-b border-stone-300 pb-1">
+                <span>LAB JOURNAL // SNAPSHOTS</span>
+                <span>★ 2024–2026</span>
               </div>
-            </a>
-
-            <a
-              href="https://github.com/Sahil-Dev404"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Sahil Saini GitHub Profile"
-              className="group cursor-pointer select-none active:scale-95 transition-transform"
-            >
-              <div className="w-10 h-3 bg-[#C9B18B]/85 shadow-2xs mx-auto -mb-1.5 rotate-[4deg] rounded-2xs border border-stone-300/40" />
-              <div className="relative w-16 h-16 rounded-full drop-shadow-md ring-2 ring-white shadow-lg overflow-hidden rotate-[6deg]">
-                <Image
-                  src="/hero-collage/github-badge.svg"
-                  alt="GitHub Badge"
-                  fill
-                  className="object-cover"
-                  sizes="64px"
-                />
+              <div className="grid grid-cols-2 gap-2">
+                <div className="bg-white p-1 pb-1.5 rounded-xs shadow-xs border border-stone-200 rotate-[-1.5deg]">
+                  <div className="relative w-full h-18 rounded-2xs overflow-hidden bg-black">
+                    <Image
+                      src="/hero-collage/sahil-laptop-balanced.jpg"
+                      alt="Sahil Saini dev workstation"
+                      fill
+                      className="object-contain object-center"
+                      sizes="140px"
+                    />
+                  </div>
+                  <span className="text-[0.52rem] font-mono text-stone-500 block text-center mt-0.5">
+                    dev workstation
+                  </span>
+                </div>
+                <div className="bg-white p-1 pb-1.5 rounded-xs shadow-xs border border-stone-200 rotate-[2deg]">
+                  <div className="relative w-full h-18 rounded-2xs overflow-hidden bg-zinc-100">
+                    <Image
+                      src="/hero-collage/code.jpg"
+                      alt="PyTorch deep learning code"
+                      fill
+                      className="object-cover"
+                      sizes="140px"
+                    />
+                  </div>
+                  <span className="text-[0.52rem] font-mono text-stone-500 block text-center mt-0.5">
+                    gpu_tensor.py
+                  </span>
+                </div>
+                <div className="bg-white p-1 pb-1.5 rounded-xs shadow-xs border border-stone-200 rotate-[1deg]">
+                  <div className="relative w-full h-18 rounded-2xs overflow-hidden bg-zinc-100">
+                    <Image
+                      src="/sahil/sahil-campus-cap.jpg"
+                      alt="Sahil Saini on campus"
+                      fill
+                      className="object-cover"
+                      sizes="140px"
+                    />
+                  </div>
+                  <span className="text-[0.52rem] font-mono text-stone-500 block text-center mt-0.5">
+                    campus innovation
+                  </span>
+                </div>
+                <div className="bg-white p-1 pb-1.5 rounded-xs shadow-xs border border-stone-200 rotate-[-2deg]">
+                  <div className="relative w-full h-18 rounded-2xs overflow-hidden bg-zinc-100">
+                    <Image
+                      src="/sahil/campus-arch.jpg"
+                      alt="Innovation campus arch"
+                      fill
+                      className="object-cover"
+                      sizes="140px"
+                    />
+                  </div>
+                  <span className="text-[0.52rem] font-mono text-stone-500 block text-center mt-0.5">
+                    architectural arch
+                  </span>
+                </div>
               </div>
-            </a>
+              <div className="mt-1.5 text-right">
+                <span
+                  className="text-stone-700 text-[0.68rem] font-normal"
+                  style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic" }}
+                >
+                  capture moments & research ~
+                </span>
+              </div>
+            </div>
           </div>
+        </div>
 
-          {/* 2. CENTERPIECE SIGNATURE & EDITORIAL STATEMENT */}
-          <div className="text-center my-6 lg:my-0 lg:absolute lg:top-[44%] xl:top-[45%] lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 z-30 pointer-events-none whitespace-nowrap">
+        {/* ---------------- DESKTOP CANVAS (>= lg) ---------------- */}
+        <div className="hidden lg:block relative w-full flex-1 my-2 overflow-visible">
+          {/* 2. CENTERPIECE SIGNATURE & EDITORIAL STATEMENT (Desktop) */}
+          <div className="text-center absolute top-[44%] xl:top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none whitespace-nowrap">
             {/* Signature style title */}
             <div className="relative inline-block">
               <h1
@@ -704,7 +955,7 @@ export default function DeskCollageHero({
           </div>
 
           {/* 9. PINNED POLAROID KRAFT PAPER BOARD (Bottom Right) - Matching Reference */}
-          <div className="relative mt-6 lg:mt-0 lg:absolute lg:right-3 xl:right-4 lg:bottom-1 xl:bottom-2 z-20 transition-transform duration-300 hover:rotate-0 hover:scale-105">
+          <div className="absolute right-3 xl:right-4 bottom-1 xl:bottom-2 z-20 transition-transform duration-300 hover:rotate-0 hover:scale-105">
             {/* Washi tape on top of kraft paper */}
             <div className="w-24 h-5 bg-[#C9B18B]/80 backdrop-blur-xs shadow-xs mx-auto -mb-2.5 rotate-[3deg] z-30 relative border border-stone-300/40 rounded-xs" />
 
